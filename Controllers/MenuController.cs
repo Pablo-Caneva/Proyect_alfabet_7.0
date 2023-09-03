@@ -12,6 +12,18 @@ namespace Proyect_alfabet_7._0.Controllers
         {
             _context = context;
         }
+        public IActionResult IndexStudent()
+        {
+            return View();
+        }
+        public IActionResult IndexTutor()
+        {
+            return View();
+        }
+        public IActionResult IndexAdmin()
+        {
+            return View();
+        }
         // GET: MenuController
         public ActionResult Index()
         {

@@ -1,5 +1,8 @@
 ﻿namespace Proyect_alfabet_7._0.Models
 {
+    /// <summary>
+    /// asadads
+    /// </summary>
     public class Admin :User
     {
         public List<Ticket> TicketList { get; set; }
