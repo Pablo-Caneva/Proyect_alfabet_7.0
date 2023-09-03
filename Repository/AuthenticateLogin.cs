@@ -23,5 +23,21 @@ namespace Proyect_alfabet_7._0.Repository
         {
             return await _context.UserLogin.ToListAsync();
         }
+
+        public async Task<string> GetDiscriminatorFromDB(int id)
+        {
+            string? discriminator = await _context.UserLogin
+                .Where(u => u.Id == id)
+                .Select(u => EF.Property<string>(u, "Discriminator"))
+                .FirstOrDefaultAsync();
+
+            if (discriminator != null)
+            {
+                return discriminator.ToString();
+            }
+
+            else { return "x"; }
+            
+        }
     }
 }

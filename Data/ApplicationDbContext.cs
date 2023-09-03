@@ -38,6 +38,7 @@ namespace Proyect_alfabet_7._0.Data
             modelBuilder.Entity<UserLogin>(entity =>
             {
                 entity.HasKey(k => k.Id);
+                entity.HasIndex(m => m.UserName).IsUnique();
             });
         }
     }

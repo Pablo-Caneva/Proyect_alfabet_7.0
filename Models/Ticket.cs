@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proyect_alfabet_7._0.Models
 {
+    /// <summary>
+    /// Esta clase es de tickets
+    /// </summary>
     public class Ticket
     {
         [Key]

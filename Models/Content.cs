@@ -11,6 +11,8 @@ namespace Proyect_alfabet_7._0.Models
         [Display(Name ="URL")]
         public string Url { get; set; }
 
+        //isLast?
+
         public Lesson Lesson { get; set; }
 
         public Content() { }

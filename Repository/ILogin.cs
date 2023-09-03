@@ -6,5 +6,6 @@ namespace Proyect_alfabet_7._0.Repository
     {
         Task<IEnumerable<UserLogin>> getuser();
         Task<UserLogin> AuthenticateUser(string username, string passcode);
+        Task<string> GetDiscriminatorFromDB(int id);
     }
 }
