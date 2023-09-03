@@ -20,7 +20,7 @@ namespace Proyect_alfabet_7._0.Data
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Module> Modules { get; set; }
         public DbSet<Progress> Progress { get; set; }
-
+        public DbSet<UserLogin> UserLogin { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Message>()
@@ -34,6 +34,11 @@ namespace Proyect_alfabet_7._0.Data
                 .WithMany()
                 .HasForeignKey(m => m.ReceiverId)
                 .OnDelete(DeleteBehavior.Restrict); // Puedes configurar OnDelete según tus necesidades
+
+            modelBuilder.Entity<UserLogin>(entity =>
+            {
+                entity.HasKey(k => k.Id);
+            });
         }
     }
 }

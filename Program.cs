@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Proyect_alfabet_7._0.Data;
+using Proyect_alfabet_7._0.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddScoped<ILogin, AuthenticateLogin>();
 
 var app = builder.Build();
 

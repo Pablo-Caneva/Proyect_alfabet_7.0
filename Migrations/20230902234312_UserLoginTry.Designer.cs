@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proyect_alfabet_7._0.Data;
 
@@ -11,9 +12,11 @@ using Proyect_alfabet_7._0.Data;
 namespace Proyect_alfabet_7._0.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230902234312_UserLoginTry")]
+    partial class UserLoginTry
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -335,7 +338,7 @@ namespace Proyect_alfabet_7._0.Migrations
                         .IsRequired();
 
                     b.HasOne("Proyect_alfabet_7._0.Models.Student", "Student")
-                        .WithMany()
+                        .WithMany("Progress")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -350,7 +353,7 @@ namespace Proyect_alfabet_7._0.Migrations
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Ticket", b =>
                 {
                     b.HasOne("Proyect_alfabet_7._0.Models.Tutor", "Creator")
-                        .WithMany()
+                        .WithMany("TicketsSent")
                         .HasForeignKey("CreatorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -393,9 +396,16 @@ namespace Proyect_alfabet_7._0.Migrations
                     b.Navigation("TicketList");
                 });
 
+            modelBuilder.Entity("Proyect_alfabet_7._0.Models.Student", b =>
+                {
+                    b.Navigation("Progress");
+                });
+
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Tutor", b =>
                 {
                     b.Navigation("StudentsInMonitoring");
+
+                    b.Navigation("TicketsSent");
                 });
 #pragma warning restore 612, 618
         }
