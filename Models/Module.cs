@@ -16,22 +16,12 @@ namespace Proyect_alfabet_7._0.Models
         [Display(Name ="description")]
         public string Description { get; set; }
 
-        public List<Lesson> Lessons { get; set; }
+        [Required]
+        [Display(Name ="Lessons Quantity")]
+        public int LessonsQuantity { get; set; }
 
         public Module()
         {
         }
-
-        public Module(int id, int number, string description)
-        {
-            Id = id;
-            Number = number;
-            Description = description;
-            Lessons = new List<Lesson>();
-        }
-
-        public void AddLesson(Lesson lesson) { Lessons.Add(lesson); }
-
-        public void RemoveLesson(Lesson lesson) { Lessons.Remove(lesson); }
     }
 }

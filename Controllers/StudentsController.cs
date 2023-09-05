@@ -62,6 +62,16 @@ namespace Proyect_alfabet_7._0.Controllers
             {
                 _context.Add(student);
                 await _context.SaveChangesAsync();
+
+                Progress progress = new Progress
+                {
+                    StudentId = student.Id,
+                    ModuleId = 1,
+                    LessonId = 1
+                };
+                _context.Add(progress);
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             return View(student);

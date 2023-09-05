@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proyect_alfabet_7._0.Data;
 
@@ -11,9 +12,11 @@ using Proyect_alfabet_7._0.Data;
 namespace Proyect_alfabet_7._0.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230903193917_ChangesToContent")]
+    partial class ChangesToContent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,39 @@ namespace Proyect_alfabet_7._0.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Proyect_alfabet_7._0.Models.Content", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("LessonId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProgressId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isLast")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LessonId");
+
+                    b.HasIndex("ProgressId");
+
+                    b.ToTable("Content");
+                });
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Lesson", b =>
                 {
@@ -30,19 +66,16 @@ namespace Proyect_alfabet_7._0.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<int>("ModuleId")
                         .HasColumnType("int");
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<bool>("isLast")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -91,9 +124,6 @@ namespace Proyect_alfabet_7._0.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("LessonsQuantity")
-                        .HasColumnType("int");
-
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
@@ -125,8 +155,7 @@ namespace Proyect_alfabet_7._0.Migrations
 
                     b.HasIndex("ModuleId");
 
-                    b.HasIndex("StudentId")
-                        .IsUnique();
+                    b.HasIndex("StudentId");
 
                     b.ToTable("Progress");
                 });
@@ -258,10 +287,25 @@ namespace Proyect_alfabet_7._0.Migrations
                     b.HasDiscriminator().HasValue("Tutor");
                 });
 
+            modelBuilder.Entity("Proyect_alfabet_7._0.Models.Content", b =>
+                {
+                    b.HasOne("Proyect_alfabet_7._0.Models.Lesson", "Lesson")
+                        .WithMany("Contents")
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Proyect_alfabet_7._0.Models.Progress", null)
+                        .WithMany("FinishedContents")
+                        .HasForeignKey("ProgressId");
+
+                    b.Navigation("Lesson");
+                });
+
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Lesson", b =>
                 {
                     b.HasOne("Proyect_alfabet_7._0.Models.Module", "Module")
-                        .WithMany()
+                        .WithMany("Lessons")
                         .HasForeignKey("ModuleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -339,6 +383,21 @@ namespace Proyect_alfabet_7._0.Migrations
                     b.HasOne("Proyect_alfabet_7._0.Models.Tutor", null)
                         .WithMany("StudentsInMonitoring")
                         .HasForeignKey("TutorId");
+                });
+
+            modelBuilder.Entity("Proyect_alfabet_7._0.Models.Lesson", b =>
+                {
+                    b.Navigation("Contents");
+                });
+
+            modelBuilder.Entity("Proyect_alfabet_7._0.Models.Module", b =>
+                {
+                    b.Navigation("Lessons");
+                });
+
+            modelBuilder.Entity("Proyect_alfabet_7._0.Models.Progress", b =>
+                {
+                    b.Navigation("FinishedContents");
                 });
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Admin", b =>

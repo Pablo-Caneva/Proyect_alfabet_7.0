@@ -2,5 +2,56 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    <p>STUDENT</p>
+    ViewBag.Title = "Student Progress";
+    int percentage = (int)(ViewBag.PercentageCompleted*100);
 }
+
+<div class="login">
+    <div class="container align-items-center justify-content-center">
+    <a href="@Url.Action("Index","Home")" class="btn btn-info" style="width:100%;">
+        <div class="container align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center"><p><i class="fas fa-thumbs-up" style="font-size: 2rem; color: black;"></i></p></div>
+            <div class="d-flex align-items-center justify-content-center"><h3>Progreso</h3></div>
+            <h6>Modulo: @ViewBag.CurrentModule | Lección: @ViewBag.CurrentLesson</h6>
+            <div class="progress" style="height:2rem;">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                    style="width: @percentage% !important;"
+                    aria-valuenow="@percentage"
+                    aria-valuemin="0"
+                    aria-valuemax="100">
+                    <b>@ViewBag.PercentageCompleted.ToString("P")</b>
+                </div>
+            </div>
+            <br />
+            <div class="d-flex align-items-center justify-content-center"><p><i class="fas fa-book-reader" style="font-size: 2rem; color: black;"></i></p></div>
+            <div class="d-flex align-items-center justify-content-center"><h2>Continuar</h2></div>
+        </div>
+        </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#calculateButton").click(function () {
+            var studentId = @ViewContext.RouteData.Values["id"];
+            var module = $(this).data("module");
+            var lesson = $(this).data("lesson");
+
+            $.ajax({
+                url: '@Url.Action("CalculatePercentage", "Menu")',
+                type: 'GET',
+                data: {
+                    studentId: studentId,
+                    module: module,
+                    lesson: lesson
+                },
+                success: function (data) {
+                    $("#percentageValue").text(data.toString("P"));
+                },
+                error: function () {
+                    alert('Error occurred while recalculating percentage.');
+                }
+            });
+        });
+    });
+</script>

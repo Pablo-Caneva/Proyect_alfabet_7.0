@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proyect_alfabet_7._0.Data;
 
@@ -11,9 +12,11 @@ using Proyect_alfabet_7._0.Data;
 namespace Proyect_alfabet_7._0.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230905121105_ContentClassRemove")]
+    partial class ContentClassRemove
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,7 +113,7 @@ namespace Proyect_alfabet_7._0.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("LessonId")
+                    b.Property<int>("LastDoneContent")
                         .HasColumnType("int");
 
                     b.Property<int>("ModuleId")
@@ -120,8 +123,6 @@ namespace Proyect_alfabet_7._0.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LessonId");
 
                     b.HasIndex("ModuleId");
 
@@ -290,12 +291,6 @@ namespace Proyect_alfabet_7._0.Migrations
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Progress", b =>
                 {
-                    b.HasOne("Proyect_alfabet_7._0.Models.Lesson", "Lesson")
-                        .WithMany()
-                        .HasForeignKey("LessonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Proyect_alfabet_7._0.Models.Module", "Module")
                         .WithMany()
                         .HasForeignKey("ModuleId")
@@ -307,8 +302,6 @@ namespace Proyect_alfabet_7._0.Migrations
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Lesson");
 
                     b.Navigation("Module");
 
