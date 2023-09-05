@@ -11,6 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddScoped<ILogin, AuthenticateLogin>();
+builder.Services.AddScoped<IProgressCalculator, ProgressDataCalculator>();
 
 var app = builder.Build();
 

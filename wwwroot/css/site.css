@@ -21,15 +21,15 @@ body {
     margin-bottom: 60px;
     font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
     color: #404040;
-    background: #0ca3d2;
+    background: hsl(328, 30%, 50%);
 }
 
 .login {
     position: relative;
-    margin: 30px auto;
+    margin: auto;
     padding: 20px 20px 20px;
     margin-top: 200px;
-    width: 310px;
+    width: 450px;
     background: white;
     border-radius: 3px;
     -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -161,7 +161,7 @@ input {
         height: 29px;
         font-size: 12px;
         font-weight: bold;
-        color: #527881;
+        color: hsl(328, 100, 35);
         text-shadow: 0 1px #e3f1f1;
         background: #cde5ef;
         border: 1px solid;

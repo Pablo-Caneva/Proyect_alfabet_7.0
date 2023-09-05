@@ -28,7 +28,7 @@ namespace Proyect_alfabet_7._0.Controllers
         public IActionResult Index(string username, string passcode)
         {
             var isuccess = _loginUser.AuthenticateUser(username, passcode);
-
+            int? userId = isuccess.Result.Id;
 
             if (isuccess.Result != null)
             {
@@ -41,15 +41,15 @@ namespace Proyect_alfabet_7._0.Controllers
                 {
                     if (discriminator == "Student")
                     {
-                        return RedirectToAction("IndexStudent", "Menu");
+                        return RedirectToAction("IndexStudent", "Menu", new { @id = userId } );
                     }
                     if (discriminator == "Tutor")
                     {
-                        return RedirectToAction("IndexTutor", "Menu");
+                        return RedirectToAction("IndexTutor", "Menu", new { @id = userId });
                     }
                     if (discriminator == "Admin")
                     {
-                        return RedirectToAction("IndexAdmin", "Menu");
+                        return RedirectToAction("IndexAdmin", "Menu", new { @id = userId });
                     }
                     return View();
                 }

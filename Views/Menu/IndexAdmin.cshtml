@@ -2,5 +2,54 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    <p>ADMIN</p>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#ff69b4">
+        <link rel="stylesheet" href="/css/device.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/tabs.css">
+        <link rel="stylesheet" href="https://storage.googleapis.com/atoms-sandbox.google.com.a.appspot.com/blokk/blokk.css">
+        <script src="/js/index.js" type="module" defer></script>
+    </head>
+    <body>
+        <div class="container login" style="height: 100vh;">
+            <div class="device">
+                <snap-tabs>
+                    <header class="scroll-snap-x">
+                        <nav>
+                            <a active class="icon-link" href="#home">
+                                <i class="fas fa-home"></i>
+                            </a>
+                            <a class="icon-link" href="#messages">
+                                <i class="fas fa-envelope-open"></i>
+                            </a>
+                            <a class="icon-link" href="#modules">
+                                <i class="fas fa-book-open"></i>
+                            </a>
+                            <a class="icon-link" href="#tickets">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </a>
+                        </nav>
+                        <span class="snap-indicator"></span>
+                    </header>
+                    <section class="scroll-snap-x">
+                        <article id="home">
+                            <iframe src=""></iframe>
+                        </article>
+                        <article id="messages">
+                            <iframe src=""></iframe>
+                        </article>
+                        <article id="modules">
+                            <iframe src=""></iframe>
+                        </article>
+                        <article id="tickets">
+                            <iframe src=""></iframe>
+                        </article>
+                    </section>
+                </snap-tabs>
+            </div>
+        </div>
+    </body>
 }

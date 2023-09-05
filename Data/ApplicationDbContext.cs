@@ -16,7 +16,6 @@ namespace Proyect_alfabet_7._0.Data
         public DbSet<Tutor> Tutors { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
-        public DbSet<Content> Content { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Module> Modules { get; set; }
         public DbSet<Progress> Progress { get; set; }
@@ -40,6 +39,9 @@ namespace Proyect_alfabet_7._0.Data
                 entity.HasKey(k => k.Id);
                 entity.HasIndex(m => m.UserName).IsUnique();
             });
+
+            modelBuilder.Entity<Progress>()
+                .HasIndex(p => p.StudentId).IsUnique();
         }
     }
 }

@@ -1,26 +1,34 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Proyect_alfabet_7._0.Data;
+using Proyect_alfabet_7._0.Repository;
 
 namespace Proyect_alfabet_7._0.Controllers
 {
     public class MenuController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IProgressCalculator _progressCalculator;
 
-        public MenuController(ApplicationDbContext context)
+        public MenuController(ApplicationDbContext context, IProgressCalculator progressCalculator)
         {
             _context = context;
+            _progressCalculator = progressCalculator;
         }
-        public IActionResult IndexStudent()
+        public IActionResult IndexStudent(int id)
+        {
+            ViewBag.CurrentModule = _progressCalculator.CurrentModule(id);
+            ViewBag.CurrentLesson = _progressCalculator.CurrentLesson(id);
+            ViewBag.PercentageCompleted = _progressCalculator.CalculatePercentage(id);
+            
+            return View();
+        }
+        public IActionResult IndexTutor(int id)
         {
             return View();
         }
-        public IActionResult IndexTutor()
-        {
-            return View();
-        }
-        public IActionResult IndexAdmin()
+        public IActionResult IndexAdmin(int id)
         {
             return View();
         }
