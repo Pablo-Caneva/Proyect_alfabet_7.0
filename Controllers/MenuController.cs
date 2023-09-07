@@ -18,8 +18,11 @@ namespace Proyect_alfabet_7._0.Controllers
         }
         public IActionResult IndexStudent(int id)
         {
+            ViewData["id"] = id;
             ViewBag.CurrentModule = _progressCalculator.CurrentModule(id);
+            ViewData["module"] = _progressCalculator.CurrentModule(id);
             ViewBag.CurrentLesson = _progressCalculator.CurrentLesson(id);
+            ViewData["lesson"] = _progressCalculator.CurrentLesson(id);
             ViewBag.PercentageCompleted = _progressCalculator.CalculatePercentage(id);
             
             return View();
@@ -30,6 +33,14 @@ namespace Proyect_alfabet_7._0.Controllers
         }
         public IActionResult IndexAdmin(int id)
         {
+            return View();
+        }
+        public IActionResult ButtonStudent(int id)
+        {
+            ViewData["id"] = id;
+            ViewBag.CurrentModule = _progressCalculator.CurrentModule(id);
+            ViewBag.CurrentLesson = _progressCalculator.CurrentLesson(id);
+            ViewBag.PercentageCompleted = _progressCalculator.CalculatePercentage(id);
             return View();
         }
         // GET: MenuController

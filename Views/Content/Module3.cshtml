@@ -1,0 +1,348 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int id = (int)ViewData["id"];
+    int module = (int)ViewData["module"];
+    int lesson = (int)ViewData["lesson"];
+    int nextLesson = lesson + 1;
+    int nextModule = module + 1;
+}
+
+@switch (lesson)
+{
+
+    case 1:
+        <div id="lesson1" class="lesson_container">
+            LESSON 1
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 2:
+        <div id="lesson2" class="lesson_container">
+            LESSON 2
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 3:
+        <div id="lesson3" class="lesson_container">
+            LESSON 3
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 4:
+        <div id="lesson4" class="lesson_container">
+            LESSON 4
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 5:
+        <div id="lesson5" class="lesson_container">
+            LESSON 5
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 6:
+        <div id="lesson6" class="lesson_container">
+            LESSON 6
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 7:
+        <div id="lesson7" class="lesson_container">
+            LESSON 7
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 8:
+        <div id="lesson8" class="lesson_container">
+            LESSON 8
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 9:
+        <div id="lesson9" class="lesson_container">
+            LESSON 9
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 10:
+        <div id="lesson10" class="lesson_container">
+            LESSON 10
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 11:
+        <div id="lesson11" class="lesson_container">
+            LESSON 11
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 12:
+        <div id="lesson12" class="lesson_container">
+            LESSON 12
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 13:
+        <div id="lesson13" class="lesson_container">
+            LESSON 13
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 14:
+        <div id="lesson14" class="lesson_container">
+            LESSON 14
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 15:
+        <div id="lesson15" class="lesson_container">
+            LESSON 15
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 16:
+        <div id="lesson16" class="lesson_container">
+            LESSON 16
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 17:
+        <div id="lesson17" class="lesson_container">
+            LESSON 17
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 18:
+        <div id="lesson18" class="lesson_container">
+            LESSON 18
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 19:
+        <div id="lesson19" class="lesson_container">
+            LESSON 19
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 20:
+        <div id="lesson20" class="lesson_container">
+            LESSON 20
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 21:
+        <div id="lesson21" class="lesson_container">
+            LESSON 21
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 22:
+        <div id="lesson22" class="lesson_container">
+            LESSON 22
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 23:
+        <div id="lesson23" class="lesson_container">
+            LESSON 23
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 24:
+        <div id="lesson24" class="lesson_container">
+            LESSON 24
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 25:
+        <div id="lesson25" class="lesson_container">
+            LESSON 25
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 26:
+        <div id="lesson26" class="lesson_container">
+            LESSON 26
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 27:
+        <div id="lesson27" class="lesson_container">
+            LESSON 27
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 28:
+        <div id="lesson28" class="lesson_container">
+            LESSON 28
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 29:
+        <div id="lesson29" class="lesson_container">
+            LESSON 29
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    case 30:
+        <div id="lesson30" class="lesson_container">
+            LESSON 30
+            <a asp-controller="Content" asp-action="Module4" asp-route-id="@id" asp-route-module="@nextModule" asp-route-lesson="1">
+                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+            </a>
+            <a asp-controller="Content" asp-action="Module3" asp-route-id="@id" asp-route-currentModule="@module" asp-route-currentLesson="@lesson">
+                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+            </a>
+        </div>
+        break;
+    default:
+        <div id="default">ERROR</div>
+        break;
+}

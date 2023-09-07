@@ -2,56 +2,95 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    int id = (int)ViewData["id"];
+    int module = (int)ViewData["module"];
+    int lesson = (int)ViewData["lesson"];
+    string currentModule = "Module" + module;
     ViewBag.Title = "Student Progress";
     int percentage = (int)(ViewBag.PercentageCompleted*100);
 }
 
-<div class="login">
-    <div class="container align-items-center justify-content-center">
-    <a href="@Url.Action("Index","Home")" class="btn btn-info" style="width:100%;">
-        <div class="container align-items-center justify-content-center">
-            <div class="d-flex align-items-center justify-content-center"><p><i class="fas fa-thumbs-up" style="font-size: 2rem; color: black;"></i></p></div>
-            <div class="d-flex align-items-center justify-content-center"><h3>Progreso</h3></div>
-            <h6>Modulo: @ViewBag.CurrentModule | Lección: @ViewBag.CurrentLesson</h6>
-            <div class="progress" style="height:2rem;">
-                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
-                    style="width: @percentage% !important;"
-                    aria-valuenow="@percentage"
-                    aria-valuemin="0"
-                    aria-valuemax="100">
-                    <b>@ViewBag.PercentageCompleted.ToString("P")</b>
-                </div>
-            </div>
-            <br />
-            <div class="d-flex align-items-center justify-content-center"><p><i class="fas fa-book-reader" style="font-size: 2rem; color: black;"></i></p></div>
-            <div class="d-flex align-items-center justify-content-center"><h2>Continuar</h2></div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ff69b4">
+    <link rel="stylesheet" href="/css/device.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/atoms-sandbox.google.com.a.appspot.com/blokk/blokk.css">
+    <script src="/js/index.js" type="module" defer></script>
+</head>
+<body>
+    <div class="container login2" style="height: 100vh;">
+        <div class="device">
+            <snap-tabs>
+                <header class="scroll-snap-x">
+                    <nav>
+                        <a active class="icon-link" href="#home" onclick="navigateAndReload('#home')">
+                            <i class="fas fa-home"></i>
+                        </a>
+                        <a class="icon-link" href="#profile">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                        <a class="icon-link" href="#messages">
+                            <i class="fas fa-envelope-open"></i>
+                        </a>
+                        <a class="icon-link" href="#modules">
+                            <i class="fas fa-book-open"></i>
+                        </a>
+                    </nav>
+                    <span class="snap-indicator"></span>
+                </header>
+                <section class="scroll-snap-x">
+                    <article id="home">
+                        <iframe id="home-iframe" src="@Url.Action("ButtonStudent", "Menu", new {@id = id})"></iframe>
+                    </article>
+                    <article id="profile">
+                        <iframe src="@Url.Action("Details", "Students", new {@id = id})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
+                    </article>
+                    <article id="messages">
+                        <iframe <!--src="@Url.Action("", "", new{@id = id})"--> width="450" height="793" frameborder="0" scrolling="yes"></iframe>
+                    </article>
+                    <article id="modules">
+                        <iframe src="@Url.Action(currentModule,"Content", new{@id = id, @module = module, @lesson = lesson})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
+                    </article>
+                </section>
+            </snap-tabs>
         </div>
-        </a>
     </div>
-</div>
+    <script>
+        function navigateAndReload(hash) {
+            window.location.hash = hash;
+            setTimeout(function () {
+                var homeIframe = document.getElementById("home-iframe");
+                homeIframe.src = homeIframe.src;
+            }, 100);
+        }
+    </script>
 
-<script>
-    $(document).ready(function () {
-        $("#calculateButton").click(function () {
-            var studentId = @ViewContext.RouteData.Values["id"];
-            var module = $(this).data("module");
-            var lesson = $(this).data("lesson");
+@*     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var iframe = document.querySelector("iframe"); // Selecciona el primer iframe
+            while (!iframe) {
+                var iframe = document.querySelector("iframe");
+            }
+            if (iframe) {
+                iframe.addEventListener("load", function () {
+                    var buttonModulesInIframe = iframe.contentDocument.querySelector("#buttonModulesInIframe");
 
-            $.ajax({
-                url: '@Url.Action("CalculatePercentage", "Menu")',
-                type: 'GET',
-                data: {
-                    studentId: studentId,
-                    module: module,
-                    lesson: lesson
-                },
-                success: function (data) {
-                    $("#percentageValue").text(data.toString("P"));
-                },
-                error: function () {
-                    alert('Error occurred while recalculating percentage.');
-                }
-            });
+                    if (buttonModulesInIframe) {
+                        buttonModulesInIframe.addEventListener("click", function (e) {
+                            e.preventDefault(); // Previene el comportamiento predeterminado del enlace
+
+                            var modulesSection = document.querySelector("#modules");
+                            if (modulesSection) {
+                                modulesSection.scrollIntoView({ behavior: "smooth" }); // Desplázate suavemente a la sección "modules"
+                            }
+                        });
+                    }
+                });
+            }
         });
-    });
-</script>
+    </script> *@
+</body>

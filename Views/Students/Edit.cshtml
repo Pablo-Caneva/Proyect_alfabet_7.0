@@ -3,6 +3,13 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<home>
+    <style>
+        body {
+            background: hsl(328, 5%, 75%);
+        }
+    </style>
+</home>
 
 <h1>Edit</h1>
 
@@ -33,26 +40,36 @@
                 <span asp-validation-for="ProfilePicture" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
+@*             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
                 <input asp-for="UserName" class="form-control" />
                 <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+                <input asp-for="Password" class="form-control" type="password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <button type="submit" class="btn btn-outline-secondary">
+                    <i class="fas fa-save" style="font-size: 1.5em"></i>
+                </button>
+                @* <input type="submit" value="" class="btn btn-primary" /><i class="fas fa-save"></i> *@
             </div>
         </form>
     </div>
+    <br />
+    <div>
+        <a asp-action="Details" asp-route-id="@Model?.Id">
+            <button typo="submit" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-alt-circle-left" style="font-size: 1.5em"></i>
+            </button>
+        </a>
+    </div>
 </div>
-
-<div>
+@* <div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div> *@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
