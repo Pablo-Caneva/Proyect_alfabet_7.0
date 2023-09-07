@@ -3,11 +3,15 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h1>Details</h1>
-
+<home>
+    <style>
+        body {
+            background: hsl(328, 5%, 75%);
+        }
+    </style>
+</home>
 <div>
-    <h4>Student</h4>
+    <h4>Perfil</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -34,7 +38,7 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.ProfilePicture)
         </dd>
-        <dt class = "col-sm-2">
+@*         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.UserName)
         </dt>
         <dd class = "col-sm-10">
@@ -45,10 +49,10 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Password)
-        </dd>
+        </dd> *@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id"><button type="submit" class="btn btn-outline-secondary"><i class="fas fa-user-edit"></i></button></a>
+    @* <a asp-action="Index">Back to List</a> *@
 </div>

@@ -42,6 +42,8 @@ namespace Proyect_alfabet_7._0.Data
 
             modelBuilder.Entity<Progress>()
                 .HasIndex(p => p.StudentId).IsUnique();
+            modelBuilder.Entity<Module>()
+                .HasIndex(m => m.Number).IsUnique();
         }
     }
 }

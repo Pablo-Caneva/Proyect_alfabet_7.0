@@ -165,6 +165,16 @@ namespace Proyect_alfabet_7._0.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Recover()
+        {
+            return View();
+        }
+
+        public IActionResult SendEmail(string email)
+        {
+            return View();
+        }
+
         private bool StudentExists(int id)
         {
           return (_context.Students?.Any(e => e.Id == id)).GetValueOrDefault();

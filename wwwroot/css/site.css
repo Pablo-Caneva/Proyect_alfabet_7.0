@@ -21,7 +21,25 @@ body {
     margin-bottom: 60px;
     font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
     color: #404040;
-    background: hsl(328, 30%, 50%);
+}
+
+.lesson_container {
+    padding: 20px 20px 20px 20px;
+    width: 450px;
+    height: 750px;
+    background-color: hsl(328, 5%, 75%);
+    border-radius: 3px;
+}
+
+.login2 {
+    position: relative;
+    margin: auto;
+    padding: 20px 20px 20px 20px;
+    width: 540px;
+    background: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .login {
@@ -29,7 +47,7 @@ body {
     margin: auto;
     padding: 20px 20px 20px;
     margin-top: 200px;
-    width: 450px;
+    width: 395px;
     background: white;
     border-radius: 3px;
     -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
