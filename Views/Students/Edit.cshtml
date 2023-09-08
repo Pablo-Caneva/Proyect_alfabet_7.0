@@ -10,12 +10,56 @@
         }
     </style>
 </home>
-
-<h1>Edit</h1>
-
-<h4>Student</h4>
+<div class="d-flex justify-content-center">
+    <h1 style="font-weight: bold; color: magenta">Editar datos</h1>
+</div>
 <hr />
-<div class="row">
+<div class="login">
+    <div class="row">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input asp-for="UserName" type="hidden" class="form-control mb-3" value="@Model?.UserName" required/>
+            <span asp-validation-for="UserName" class="text-danger"></span>
+
+            <input asp-for="Password" type="hidden" class="form-control mb-3" value="@Model?.Password" required/>
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <input asp-for="Email" class="form-control mb-3" value="@Model?.Email" required id="email_ing" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <input asp-for="Phone" class="form-control mb-3" value="@Model?.Phone" required />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+
+            <input asp-for="City" class="form-control mb-3" value="@Model?.City" required />
+            <span asp-validation-for="City" class="text-danger"></span>
+
+            <input asp-for="ProfilePicture" type="file" name="ProfilePicture" class="form-control mb-3" accept=".png, .jpg, .jpeg, .gif, .tif" value="@Model?.ProfilePicture"/>
+            <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+            <hr />
+            <div class="d-flex justify-content-between">
+                <div>
+                    <button type="submit" class="btn btn-outline-secondary mb-3" onclick="EmailVal();">
+                        <i class="fas fa-save" style="font-size: 1.5em"></i> Grabar cambios
+                    </button>
+                </div>
+                <div>
+                    <a asp-action="Details" asp-route-id="@Model?.Id">
+                        <button type="button" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-alt-circle-left" style="font-size: 1.5em"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<!--
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -61,7 +105,7 @@
     <br />
     <div>
         <a asp-action="Details" asp-route-id="@Model?.Id">
-            <button typo="submit" class="btn btn-outline-secondary">
+            <button type="button" class="btn btn-outline-secondary">
                 <i class="fas fa-arrow-alt-circle-left" style="font-size: 1.5em"></i>
             </button>
         </a>
@@ -70,7 +114,4 @@
 @* <div>
     <a asp-action="Index">Back to List</a>
 </div> *@
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+-->

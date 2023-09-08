@@ -14,6 +14,7 @@ namespace Proyect_alfabet_7._0.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+
         public StudentsController(ApplicationDbContext context)
         {
             _context = context;
@@ -27,6 +28,11 @@ namespace Proyect_alfabet_7._0.Controllers
                           Problem("Entity set 'ApplicationDbContext.Students'  is null.");
         }
 
+        public IActionResult IndexCreate()
+        {
+            return View();
+        }
+
         // GET: Students/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -37,6 +43,20 @@ namespace Proyect_alfabet_7._0.Controllers
 
             var student = await _context.Students
                 .FirstOrDefaultAsync(m => m.Id == id);
+            try
+            {
+                var profilePic = await _context.ProfilePic
+                    .FirstOrDefaultAsync(m => m.UserId == id);
+                if (profilePic != null)
+                {
+                    string pic = Convert.ToBase64String(profilePic.ProfilePictureBytes);
+                    ViewData["Pic"] = pic;
+                }
+            }
+            catch (Exception e)
+            {
+                ViewData["Pic"] = null;
+            }
             if (student == null)
             {
                 return NotFound();
@@ -60,6 +80,16 @@ namespace Proyect_alfabet_7._0.Controllers
         {
             if (ModelState.IsValid)
             {
+                byte[]? profilePictureBytes = null;
+                using (var memoryStream = new MemoryStream())
+                {
+                    if (student.ProfilePicture != null)
+                    {
+                        await student.ProfilePicture.CopyToAsync(memoryStream);
+                        profilePictureBytes = memoryStream.ToArray();
+                    }
+                }
+
                 _context.Add(student);
                 await _context.SaveChangesAsync();
 
@@ -72,7 +102,18 @@ namespace Proyect_alfabet_7._0.Controllers
                 _context.Add(progress);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                if (profilePictureBytes != null)
+                {
+                    ProfilePic profilePic = new ProfilePic
+                    {
+                        UserId = student.Id,
+                        ProfilePictureBytes = profilePictureBytes
+                    };
+                    _context.Add(profilePic);
+                    await _context.SaveChangesAsync();
+                }
+
+                return RedirectToAction(nameof(IndexCreate));
             }
             return View(student);
         }
@@ -107,6 +148,34 @@ namespace Proyect_alfabet_7._0.Controllers
 
             if (ModelState.IsValid)
             {
+                byte[]? profilePictureBytes = null;
+                if (student.ProfilePicture != null)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await student.ProfilePicture.CopyToAsync(memoryStream);
+                        profilePictureBytes = memoryStream.ToArray();
+                    }
+                    
+                    var profilePic = _context.ProfilePic.FirstOrDefault(p => p.UserId == student.Id);
+                    if (profilePic != null)
+                    {
+                        profilePic.ProfilePictureBytes = profilePictureBytes;
+                        _context.Update(profilePic);
+                        await _context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        ProfilePic newProfilePic = new ProfilePic
+                        {
+                            UserId = student.Id,
+                            ProfilePictureBytes = profilePictureBytes
+                        };
+                        _context.Add(newProfilePic);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
                 try
                 {
                     _context.Update(student);
@@ -123,7 +192,7 @@ namespace Proyect_alfabet_7._0.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), new {@id = student.Id});
             }
             return View(student);
         }

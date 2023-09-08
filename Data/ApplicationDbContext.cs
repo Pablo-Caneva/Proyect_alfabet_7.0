@@ -20,6 +20,7 @@ namespace Proyect_alfabet_7._0.Data
         public DbSet<Module> Modules { get; set; }
         public DbSet<Progress> Progress { get; set; }
         public DbSet<UserLogin> UserLogin { get; set; }
+        public DbSet<ProfilePic> ProfilePic { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Message>()
