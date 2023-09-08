@@ -8,53 +8,97 @@
         body {
             background: hsl(328, 5%, 75%);
         }
-    </style>
+        </style>
 </home>
-<div class="login align-items-center justify-content-center">
+<div class="login">
     <div class="row">
-        <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input asp-for="UserName" class="form-control mb-3" placeholder="Nombre del usuario" required />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+
+            <input asp-for="Password" class="form-control mb-3" placeholder="Contraseña" required type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <input asp-for="Email" class="form-control mb-3" placeholder="Email@@ejemplo.com" required id="email_ing" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <input asp-for="Phone" class="form-control mb-3" placeholder="Teléfono" required />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+
+            <input asp-for="City" class="form-control mb-3" placeholder="Ciudad" required />
+            <span asp-validation-for="City" class="text-danger"></span>
+
+            <input asp-for="ProfilePicture" type="file" name="ProfilePicture" class="form-control mb-3" accept=".png, .jpg, .jpeg, .gif, .tif" />
+            <span asp-validation-for="ProfilePicture" class="text-danger" required></span>
+            <hr />
+            <div class="d-flex justify-content-between">
+                <div>
+                    <button type="submit" class="btn btn-outline-secondary mb-3" onclick="EmailVal();">
+                        <i class="fas fa-user-plus"></i> Crear
+                    </button>
+                </div>
+                <div>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <button type="button" class="btn btn-outline-secondary">
+                            Volver <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+        <!--
             <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    @* <label asp-for="UserName" class="control-label"></label> *@
-                    <input asp-for="UserName" class="form-control" placeholder="Nombre de usuario" required style="margin:1rem;" />
-                    <span asp-validation-for="UserName" class="text-danger"></span>
+                <div class="row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        @* <label asp-for="UserName" class="control-label"></label> *@
+                        <input asp-for="UserName" class="form-control" placeholder="Nombre de usuario" required style="margin:1rem;" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @* <label asp-for="Password" class="control-label"></label> *@
+                        <input asp-for="Password" class="form-control" placeholder="Contraseña" required style="margin:1rem;" type="password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @* <label asp-for="Email" class="control-label"></label> *@
+                        <input asp-for="Email" class="form-control" placeholder="Email@@ejemplo.com" required style="margin:1rem;" id="email_ing" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @* <label asp-for="Phone" class="control-label"></label> *@
+                        <input asp-for="Phone" class="form-control" placeholder="Teléfono" required style="margin:1rem;" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @* <label asp-for="City" class="control-label"></label> *@
+                        <input asp-for="City" class="form-control" placeholder="Ciudad" required style="margin:1rem;" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    @* <label asp-for="Password" class="control-label"></label> *@
-                    <input asp-for="Password" class="form-control" placeholder="Contraseña" required style="margin:1rem;" type="password" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                
-                <div class="form-group">
-                    @* <label asp-for="Email" class="control-label"></label> *@
-                    <input asp-for="Email" class="form-control" placeholder="Email@@ejemplo.com" required style="margin:1rem;" id="email_ing" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    @* <label asp-for="Phone" class="control-label"></label> *@
-                    <input asp-for="Phone" class="form-control" placeholder="Teléfono" required style="margin:1rem;" />
-                    <span asp-validation-for="Phone" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    @* <label asp-for="City" class="control-label"></label> *@
-                    <input asp-for="City" class="form-control" placeholder="Ciudad" required style="margin:1rem;" />
-                    <span asp-validation-for="City" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    @* <label asp-for="ProfilePicture" class="control-label"></label> *@
-                    <input asp-for="ProfilePicture" class="form-control" placeholder="URL" style="margin:1rem;" />
-                    <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+                <div class="row">
+                    <div class="form-group">
+                        @* <label asp-for="ProfilePicture" class="control-label"></label> *@
+                        @* <input asp-for="ProfilePicture" class="form-control" placeholder="URL" style="margin:1rem;" /> *@
+                        @*<input asp-for="ProfilePicture" class="form-control" type="file" name="UserPhoto" id="fileUpload" accept=".png, .jpg, .jpeg, .gif, .tif" style="margin:1rem;" />*@
+                        <label for="fileUpload" class="btn btn-outline-secondary">
+                            <i class="fas fa-upload"></i> Subir Imagen
+                            <input asp-for="ProfilePicture" class="form-control-file d-none" type="file" name="UserPhoto" id="fileUpload" accept=".png, .jpg, .jpeg, .gif, .tif" />
+                        </label>
+                        <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-outline-secondary" onclick="EmailVal();">
-                        <i class="fas fa-user-plus"></i> Nuevo
+                        <i class="fas fa-user-plus"></i> Crear
                     </button>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
+            </form>-->
+
 
 @* <div>
     <a asp-action="Index">Back to List</a>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proyect_alfabet_7._0.Data;
 
@@ -11,9 +12,11 @@ using Proyect_alfabet_7._0.Data;
 namespace Proyect_alfabet_7._0.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230907172431_ProfilePic")]
+    partial class ProfilePic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,28 +106,6 @@ namespace Proyect_alfabet_7._0.Migrations
                         .IsUnique();
 
                     b.ToTable("Modules");
-                });
-
-            modelBuilder.Entity("Proyect_alfabet_7._0.Models.ProfilePic", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<byte[]>("ProfilePictureBytes")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ProfilePic");
                 });
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Progress", b =>
@@ -249,6 +230,10 @@ namespace Proyect_alfabet_7._0.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<byte[]>("ProfilePictureBytes")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
                     b.HasDiscriminator().HasValue("User");
                 });
 
@@ -306,17 +291,6 @@ namespace Proyect_alfabet_7._0.Migrations
                     b.Navigation("Receiver");
 
                     b.Navigation("Sender");
-                });
-
-            modelBuilder.Entity("Proyect_alfabet_7._0.Models.ProfilePic", b =>
-                {
-                    b.HasOne("Proyect_alfabet_7._0.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Progress", b =>

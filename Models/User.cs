@@ -20,22 +20,11 @@ namespace Proyect_alfabet_7._0.Models
         [Display(Name ="phone")]
         public string Phone { get; set; }
 
-        [Required]
-        [MaxLength(100)]
-        [Display(Name ="ProfilePicture")]
-        public string ProfilePicture { get; set; }
+        [NotMapped]
+        public IFormFile? ProfilePicture { get; set; } = null;
 
         public User()
         {
-        }
-
-        public User(int id, string name, string city, string email, string phone, string profilePicture, string password) :base(id, name, password)
-        {
-            City = city;
-            Email = email;
-            Phone = phone;
-            ProfilePicture = profilePicture;
-            Password = password;
         }
     }
 }

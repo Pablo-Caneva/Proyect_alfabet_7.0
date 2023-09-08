@@ -9,12 +9,6 @@
         {
         }
 
-        public Tutor(int id, string name, string city, string email, string phone, string profilePicture, string password) : base(id, name, city, email, phone, profilePicture, password)
-        {
-            StudentsInMonitoring = new List<Student>();
-            //TicketsSent = new List<Ticket>();
-        }
-
         public void AddStudentInMonitoring(Student student) { StudentsInMonitoring.Add(student); }
         public void RemoveStudentInMonitoring(Student student) { StudentsInMonitoring.Remove(student); }
     }

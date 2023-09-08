@@ -28,10 +28,10 @@ namespace Proyect_alfabet_7._0.Controllers
         public IActionResult Index(string username, string passcode)
         {
             var isuccess = _loginUser.AuthenticateUser(username, passcode);
-            int? userId = isuccess.Result.Id;
 
             if (isuccess.Result != null)
             {
+                int? userId = isuccess.Result.Id;
                 string? discriminator = _context.UserLogin
                     .Where(u => u.Id == isuccess.Result.Id)
                     .Select(u => EF.Property<string>(u, "Discriminator"))

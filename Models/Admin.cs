@@ -11,11 +11,6 @@
         {
         }
 
-        public Admin(int id, string name, string city, string email, string phone, string profilePicture, string password) : base(id, name, city, email, phone, profilePicture, password)
-        {
-            TicketList = new List<Ticket>();
-        }
-
         public bool CreateUser(int id)
         {
             return true;
