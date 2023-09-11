@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proyect_alfabet_7._0.Data;
 
@@ -11,9 +12,11 @@ using Proyect_alfabet_7._0.Data;
 namespace Proyect_alfabet_7._0.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230911091942_Monitoring2")]
+    partial class Monitoring2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -262,15 +265,6 @@ namespace Proyect_alfabet_7._0.Migrations
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Student", b =>
                 {
                     b.HasBaseType("Proyect_alfabet_7._0.Models.User");
-
-                    b.Property<int?>("StudentLesson")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("StudentModule")
-                        .HasColumnType("int");
-
-                    b.Property<double?>("StudentProgress")
-                        .HasColumnType("float");
 
                     b.Property<int?>("TutorId")
                         .HasColumnType("int");

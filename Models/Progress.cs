@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proyect_alfabet_7._0.Models
 {
@@ -13,8 +14,7 @@ namespace Proyect_alfabet_7._0.Models
         /// <summary>
         /// Id del estudiante al que pertenece el progreso.
         /// </summary>
-        [Required]
-        [Display(Name ="StudentId")]
+        [ForeignKey("Student")]
         public int StudentId { get; set; }
         public virtual Student Student { get; set; }
 

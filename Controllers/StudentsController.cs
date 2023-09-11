@@ -76,7 +76,7 @@ namespace Proyect_alfabet_7._0.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("City,Email,Phone,ProfilePicture,Id,UserName,Password")] Student student)
+        public async Task<IActionResult> Create([Bind("City,Email,Phone,ProfilePicture,Id,UserName,Password,TutorId")] Student student)
         {
             if (ModelState.IsValid)
             {

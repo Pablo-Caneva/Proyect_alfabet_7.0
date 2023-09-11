@@ -15,6 +15,9 @@
         <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+            <input asp-for="TutorId" type="hidden" class="form-control mb-3" value="3" required />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+
             <input asp-for="UserName" class="form-control mb-3" placeholder="Nombre del usuario" required />
             <span asp-validation-for="UserName" class="text-danger"></span>
 

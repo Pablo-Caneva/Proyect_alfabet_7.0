@@ -1,0 +1,37 @@
+﻿@model (List<Proyect_alfabet_7._0.Models.Student> students, List<Proyect_alfabet_7._0.Models.Tutor> tutors)
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="d-flex mb-3 justify-content-center" style="width: 400px;">
+    <h1>Estudiantes nuevos</h1>
+</div>
+<hr />
+@foreach (var student in Model.students)
+{
+    <div class="container mb-3" style="width: 400px;">
+        <form asp-controller="Admins" asp-action="SaveTutorAssignment" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-10 d-flex justify-content-between align-content-center">
+                    <div>
+                        <h6>@student.UserName @student.City</h6>
+                    </div>
+                    <div>
+                        <select class="form-select" name="tutorId">
+                            <option selected>Asignar tutor</option>
+                            @foreach (var tutor in Model.tutors)
+                            {
+                                <option value="@tutor.Id">@tutor.UserName @tutor.City</option>
+                            }
+                        </select>
+                        <input name="studentId" type="hidden" value="@student.Id">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-save"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr />
+}
