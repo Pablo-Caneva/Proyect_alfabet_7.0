@@ -1,6 +1,9 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@{
+    int id = (int)ViewData["id"];
+}
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,10 +41,10 @@
                     </header>
                     <section class="scroll-snap-x">
                         <article id="home">
-                            <iframe src=""></iframe>
+                            <iframe id="home-iframe" src="@Url.Action("Index", "Tutors", new {@id = id})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
                         </article>
                         <article id="profile">
-                            <iframe src=""></iframe>
+                            <iframe id="details" src="@Url.Action("Details", "Tutors", new {@id = id})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
                         </article>
                         <article id="messages">
                             <iframe src=""></iframe>

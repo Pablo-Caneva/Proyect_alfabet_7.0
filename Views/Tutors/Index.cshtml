@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Proyect_alfabet_7._0.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@foreach (var item in Model)
+{
+    int? progress = (int)item.StudentProgress;
+    <div class="container" style="width:400px;">
+        <h3>@Html.DisplayFor(modelItem => item.UserName)</h3>
+        <p>Módulo: @Html.DisplayFor(modelItem => item.StudentModule) Lección: @Html.DisplayFor(modelItem => item.StudentLesson)</p>
+        <div class="progress" style="height:2rem;">
+            <div class="progress-bar bg-info"
+                    role="progressbar"
+                    style="width: @progress% !important;"
+                    aria-valuenow="@progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100">
+                <span style="font-weight: bold; font-size: 1rem; color: black;">@item.StudentProgress.ToString()%</span>
+            </div> 
+        </div>
+    </div>
+    <hr />
+}
+
+
+
+
+<!--
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Estudiante
+            </th>
+            <th>
+                Modulo Actual
+            </th>
+            <th>
+                Lección Actual
+            </th>
+            <th>
+                Progreso
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentModule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentModule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentProgress)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+-->

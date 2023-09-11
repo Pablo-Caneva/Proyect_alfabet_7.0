@@ -29,10 +29,12 @@ namespace Proyect_alfabet_7._0.Controllers
         }
         public IActionResult IndexTutor(int id)
         {
+            ViewData["id"] = id;
             return View();
         }
         public IActionResult IndexAdmin(int id)
         {
+            ViewData["id"] = id;
             return View();
         }
         public IActionResult ButtonStudent(int id)

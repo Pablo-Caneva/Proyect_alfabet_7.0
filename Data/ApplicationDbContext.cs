@@ -27,13 +27,13 @@ namespace Proyect_alfabet_7._0.Data
                 .HasOne(m => m.Sender)
                 .WithMany()
                 .HasForeignKey(m => m.SenderId)
-                .OnDelete(DeleteBehavior.Restrict); // Puedes configurar OnDelete según tus necesidades
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Message>()
                 .HasOne(m => m.Receiver)
                 .WithMany()
                 .HasForeignKey(m => m.ReceiverId)
-                .OnDelete(DeleteBehavior.Restrict); // Puedes configurar OnDelete según tus necesidades
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<UserLogin>(entity =>
             {
@@ -43,6 +43,7 @@ namespace Proyect_alfabet_7._0.Data
 
             modelBuilder.Entity<Progress>()
                 .HasIndex(p => p.StudentId).IsUnique();
+
             modelBuilder.Entity<Module>()
                 .HasIndex(m => m.Number).IsUnique();
         }

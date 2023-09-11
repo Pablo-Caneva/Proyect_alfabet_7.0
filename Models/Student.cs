@@ -5,21 +5,11 @@ namespace Proyect_alfabet_7._0.Models
 {
     public class Student :User
     {
-        private readonly ApplicationDbContext _context;
-
+        public int? TutorId { get; set; } = null;
+        public virtual Tutor? Tutor { get; set; } = null;
+        public virtual double? StudentProgress { get; set; } = null;
+        public virtual int? StudentModule { get; set; } = null;
+        public virtual int? StudentLesson { get; set; } = null;
         public Student() { }
-        public Student(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        //public Student(int id, string name, string city, string email, string phone, string profilepicture, string password) : base(id, name, city, email, phone, profilepicture, password)
-        //{
-        //}
-
-        public async Task<List<Progress>> getStudentProgress()
-        {
-            return await _context.Progress.ToListAsync();
-        }
     }
 }
