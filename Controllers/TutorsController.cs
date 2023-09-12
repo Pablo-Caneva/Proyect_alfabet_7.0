@@ -33,8 +33,8 @@ namespace Proyect_alfabet_7._0.Controllers
                 foreach (var student in students)
                 {
                     student.StudentProgress = Math.Round(await (_progressCalculator.CalculatePercentage(student.Id))*100, 2);
-                    student.StudentModule = _progressCalculator.CurrentModule(student.Id);
-                    student.StudentLesson = _progressCalculator.CurrentLesson(student.Id);
+                    student.StudentModule = await _progressCalculator.CurrentModule(student.Id);
+                    student.StudentLesson = await _progressCalculator.CurrentLesson(student.Id);
                 }
                 return View(students);
             }

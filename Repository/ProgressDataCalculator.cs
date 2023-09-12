@@ -42,12 +42,12 @@ namespace Proyect_alfabet_7._0.Repository
         /// </summary>
         /// <param name="studentId"></param>
         /// <returns></returns>
-        public int CurrentModule(int studentId)
+        public async Task<int> CurrentModule(int studentId)
         {
-            var progress = _context.Progress.FirstOrDefault(s => s.StudentId == studentId);
+            var progress = await _context.Progress.FirstOrDefaultAsync(s => s.StudentId == studentId);
             if (progress != null)
             {
-                var module = _context.Modules.FirstOrDefault(s => s.Id == progress.ModuleId);
+                var module = await _context.Modules.FirstOrDefaultAsync(s => s.Id == progress.ModuleId);
                 if (module != null)
                 {
                     return module.Number;
@@ -61,12 +61,12 @@ namespace Proyect_alfabet_7._0.Repository
         /// </summary>
         /// <param name="studentId"></param>
         /// <returns></returns>
-        public int CurrentLesson(int studentId)
+        public async Task<int> CurrentLesson(int studentId)
         {
-            var progress = _context.Progress.FirstOrDefault(s => s.StudentId == studentId);
+            var progress = await _context.Progress.FirstOrDefaultAsync(s => s.StudentId == studentId);
             if (progress != null)
             {
-                var lesson = _context.Lessons.FirstOrDefault(s => s.Id == progress.LessonId);
+                var lesson = await _context.Lessons.FirstOrDefaultAsync(s => s.Id == progress.LessonId);
                 if (lesson != null)
                 {
                     return lesson.Number;

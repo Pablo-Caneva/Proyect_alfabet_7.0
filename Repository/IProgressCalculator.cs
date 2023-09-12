@@ -3,7 +3,7 @@
     public interface IProgressCalculator
     {
         Task<double> CalculatePercentage(int studentId);
-        int CurrentModule(int studentId);
-        int CurrentLesson(int studentId);
+        Task<int> CurrentModule(int studentId);
+        Task<int> CurrentLesson(int studentId);
     }
 }

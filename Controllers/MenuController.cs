@@ -19,10 +19,10 @@ namespace Proyect_alfabet_7._0.Controllers
         public async Task<IActionResult> IndexStudent(int id)
         {
             ViewData["id"] = id;
-            ViewBag.CurrentModule = _progressCalculator.CurrentModule(id);
-            ViewData["module"] = _progressCalculator.CurrentModule(id);
-            ViewBag.CurrentLesson = _progressCalculator.CurrentLesson(id);
-            ViewData["lesson"] = _progressCalculator.CurrentLesson(id);
+            ViewBag.CurrentModule = await _progressCalculator.CurrentModule(id);
+            ViewData["module"] = await _progressCalculator.CurrentModule(id);
+            ViewBag.CurrentLesson = await _progressCalculator.CurrentLesson(id);
+            ViewData["lesson"] = await _progressCalculator.CurrentLesson(id);
             ViewBag.PercentageCompleted = await  _progressCalculator.CalculatePercentage(id);
             
             return View();
@@ -40,85 +40,11 @@ namespace Proyect_alfabet_7._0.Controllers
         public async Task<IActionResult> ButtonStudent(int id)
         {
             ViewData["id"] = id;
-            ViewBag.CurrentModule = _progressCalculator.CurrentModule(id);
-            ViewBag.CurrentLesson = _progressCalculator.CurrentLesson(id);
+            ViewBag.CurrentModule = await _progressCalculator.CurrentModule(id);
+            ViewBag.CurrentLesson = await _progressCalculator.CurrentLesson(id);
             ViewBag.PercentageCompleted = await _progressCalculator.CalculatePercentage(id);
 
             return View();
-        }
-        // GET: MenuController
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: MenuController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: MenuController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: MenuController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: MenuController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: MenuController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: MenuController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: MenuController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }
