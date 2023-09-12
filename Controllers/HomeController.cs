@@ -25,17 +25,17 @@ namespace Proyect_alfabet_7._0.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string username, string passcode)
+        public async Task<IActionResult> Index(string username, string passcode)
         {
-            var isuccess = _loginUser.AuthenticateUser(username, passcode);
+            var isuccess = await _loginUser.AuthenticateUser(username, passcode);
 
-            if (isuccess.Result != null)
+            if (isuccess != null)
             {
-                int? userId = isuccess.Result.Id;
-                string? discriminator = _context.UserLogin
-                    .Where(u => u.Id == isuccess.Result.Id)
+                int? userId = isuccess.Id;
+                string? discriminator = await _context.UserLogin
+                    .Where(u => u.Id == isuccess.Id)
                     .Select(u => EF.Property<string>(u, "Discriminator"))
-                    .FirstOrDefault();
+                    .FirstOrDefaultAsync();
 
                 if (discriminator != null)
                 {
@@ -61,30 +61,5 @@ namespace Proyect_alfabet_7._0.Controllers
                 return View();
             }
         }
-
-    
-        /*
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }*/
     }
 }
