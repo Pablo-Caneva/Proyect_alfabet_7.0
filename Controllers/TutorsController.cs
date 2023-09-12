@@ -32,7 +32,7 @@ namespace Proyect_alfabet_7._0.Controllers
             {
                 foreach (var student in students)
                 {
-                    student.StudentProgress = Math.Round((_progressCalculator.CalculatePercentage(student.Id))*100, 2);
+                    student.StudentProgress = Math.Round(await (_progressCalculator.CalculatePercentage(student.Id))*100, 2);
                     student.StudentModule = _progressCalculator.CurrentModule(student.Id);
                     student.StudentLesson = _progressCalculator.CurrentLesson(student.Id);
                 }
@@ -55,6 +55,20 @@ namespace Proyect_alfabet_7._0.Controllers
 
             var tutor = await _context.Tutors
                 .FirstOrDefaultAsync(m => m.Id == id);
+            try
+            {
+                var profilePic = await _context.ProfilePic
+                    .FirstOrDefaultAsync(m => m.UserId == id);
+                if (profilePic != null)
+                {
+                    string pic = Convert.ToBase64String(profilePic.ProfilePictureBytes);
+                    ViewData["Pic"] = pic;
+                }
+            }
+            catch (Exception e)
+            {
+                ViewData["Pic"] = null;
+            }
             if (tutor == null)
             {
                 return NotFound();

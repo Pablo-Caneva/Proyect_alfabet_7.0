@@ -25,6 +25,9 @@
             <input asp-for="Password" type="hidden" class="form-control mb-3" value="@Model?.Password" required/>
             <span asp-validation-for="Password" class="text-danger"></span>
 
+            <input asp-for="TutorId" type="hidden" class="form-control mb-3" value="@Model?.TutorId" required />
+            <span asp-validation-for="TutorId" class="text-danger"></span>
+
             <input asp-for="Email" class="form-control mb-3" value="@Model?.Email" required id="email_ing" />
             <span asp-validation-for="Email" class="text-danger"></span>
 

@@ -70,6 +70,20 @@ namespace Proyect_alfabet_7._0.Controllers
 
             var admin = await _context.Admins
                 .FirstOrDefaultAsync(m => m.Id == id);
+            try
+            {
+                var profilePic = await _context.ProfilePic
+                    .FirstOrDefaultAsync(m => m.UserId == id);
+                if (profilePic != null)
+                {
+                    string pic = Convert.ToBase64String(profilePic.ProfilePictureBytes);
+                    ViewData["Pic"] = pic;
+                }
+            }
+            catch (Exception e)
+            {
+                ViewData["Pic"] = null;
+            }
             if (admin == null)
             {
                 return NotFound();
@@ -121,7 +135,7 @@ namespace Proyect_alfabet_7._0.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("City,Email,Phone,Id,UserName,Password")] Admin admin)
+        public async Task<IActionResult> Edit(int id, [Bind("City,Email,Phone,Id,UserName,Password,ProfilePicture")] Admin admin)
         {
             if (id != admin.Id)
             {

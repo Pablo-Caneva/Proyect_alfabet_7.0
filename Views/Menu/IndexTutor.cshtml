@@ -41,13 +41,13 @@
                     </header>
                     <section class="scroll-snap-x">
                         <article id="home">
-                            <iframe id="home-iframe" src="@Url.Action("Index", "Tutors", new {@id = id})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
+                            <iframe id="home-iframe" src="@Url.Action("Index", "Tutors", new {@id = id})" width="450" height="793" frameborder="0" scrolling="yes"></iframe>
                         </article>
                         <article id="profile">
                             <iframe id="details" src="@Url.Action("Details", "Tutors", new {@id = id})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
                         </article>
                         <article id="messages">
-                            <iframe src=""></iframe>
+                            <iframe src="@Url.Action("Index", "Messages", new {@id = id})" width="450" height="793" frameborder="0" scrolling="yes"></iframe>
                         </article>
                         <article id="modules">
                             <iframe src=""></iframe>
