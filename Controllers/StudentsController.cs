@@ -76,10 +76,11 @@ namespace Proyect_alfabet_7._0.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("City,Email,Phone,ProfilePicture,Id,UserName,Password,TutorId")] Student student)
+        public async Task<IActionResult> Create([Bind("City,Email,Phone,ProfilePicture,Id,UserName,Password")] Student student)
         {
             if (ModelState.IsValid)
             {
+                var admin = await _context.Admins.FirstOrDefaultAsync();
                 byte[]? profilePictureBytes = null;
                 using (var memoryStream = new MemoryStream())
                 {
@@ -89,7 +90,7 @@ namespace Proyect_alfabet_7._0.Controllers
                         profilePictureBytes = memoryStream.ToArray();
                     }
                 }
-
+                student.TutorId = admin.Id;
                 _context.Add(student);
                 await _context.SaveChangesAsync();
 
@@ -139,7 +140,7 @@ namespace Proyect_alfabet_7._0.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("City,Email,Phone,ProfilePicture,Id,UserName,Password")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("City,Email,Phone,ProfilePicture,Id,UserName,Password,TutorId")] Student student)
         {
             if (id != student.Id)
             {

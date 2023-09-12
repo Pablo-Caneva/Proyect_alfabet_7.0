@@ -2,7 +2,7 @@
 {
     public class Admin :User
     {
-        public List<Ticket> TicketList { get; set; }
+        public List<Ticket>? TicketList { get; set; } = null;
         public Admin() { }
     }
 }

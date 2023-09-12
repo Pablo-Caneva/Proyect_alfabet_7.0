@@ -16,14 +16,14 @@ namespace Proyect_alfabet_7._0.Controllers
             _context = context;
             _progressCalculator = progressCalculator;
         }
-        public IActionResult IndexStudent(int id)
+        public async Task<IActionResult> IndexStudent(int id)
         {
             ViewData["id"] = id;
             ViewBag.CurrentModule = _progressCalculator.CurrentModule(id);
             ViewData["module"] = _progressCalculator.CurrentModule(id);
             ViewBag.CurrentLesson = _progressCalculator.CurrentLesson(id);
             ViewData["lesson"] = _progressCalculator.CurrentLesson(id);
-            ViewBag.PercentageCompleted = _progressCalculator.CalculatePercentage(id);
+            ViewBag.PercentageCompleted = await  _progressCalculator.CalculatePercentage(id);
             
             return View();
         }
@@ -37,12 +37,13 @@ namespace Proyect_alfabet_7._0.Controllers
             ViewData["id"] = id;
             return View();
         }
-        public IActionResult ButtonStudent(int id)
+        public async Task<IActionResult> ButtonStudent(int id)
         {
             ViewData["id"] = id;
             ViewBag.CurrentModule = _progressCalculator.CurrentModule(id);
             ViewBag.CurrentLesson = _progressCalculator.CurrentLesson(id);
-            ViewBag.PercentageCompleted = _progressCalculator.CalculatePercentage(id);
+            ViewBag.PercentageCompleted = await _progressCalculator.CalculatePercentage(id);
+
             return View();
         }
         // GET: MenuController

@@ -1,4 +1,5 @@
-﻿using Proyect_alfabet_7._0.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Proyect_alfabet_7._0.Data;
 
 namespace Proyect_alfabet_7._0.Repository
 {
@@ -18,14 +19,16 @@ namespace Proyect_alfabet_7._0.Repository
         /// </summary>
         /// <param name="studentId"></param>
         /// <returns></returns>
-        public double CalculatePercentage(int studentId)
+        public async Task<double> CalculatePercentage(int studentId)
         {
             double? percentageCompleted = null;
-            var progress = _context.Progress.FirstOrDefault(s => s.StudentId == studentId);
+            var progress = await _context.Progress.FirstOrDefaultAsync(s => s.StudentId == studentId);
+
             if (progress != null)
             {
-                var module = _context.Modules.FirstOrDefault(s => s.Id == progress.ModuleId);
-                var lesson = _context.Lessons.FirstOrDefault(s => s.Id == progress.LessonId);
+                var module = await _context.Modules.FirstOrDefaultAsync(s => s.Id == progress.ModuleId);
+                var lesson = await _context.Lessons.FirstOrDefaultAsync(s => s.Id == progress.LessonId);
+
                 if (module != null && lesson != null)
                 {
                     percentageCompleted = (Convert.ToDouble(lesson.Number) - 1) / Convert.ToDouble(module.LessonsQuantity);

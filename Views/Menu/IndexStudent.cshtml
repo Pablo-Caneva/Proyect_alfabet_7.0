@@ -44,13 +44,13 @@
                 </header>
                 <section class="scroll-snap-x">
                     <article id="home">
-                        <iframe id="home-iframe" src="@Url.Action("ButtonStudent", "Menu", new {@id = id})"></iframe>
+                        <iframe id="home-iframe" src="@Url.Action("ButtonStudent", "Menu", new {@id = id})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
                     </article>
                     <article id="profile">
                         <iframe id="details" src="@Url.Action("Details", "Students", new {@id = id})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
                     </article>
                     <article id="messages">
-                        <iframe <!--src="@Url.Action("", "", new{@id = id})"--> width="450" height="793" frameborder="0" scrolling="yes"></iframe>
+                        <iframe src="@Url.Action("Index", "Messages", new {@id = id})" width="450" height="793" frameborder="0" scrolling="yes"></iframe>
                     </article>
                     <article id="modules">
                         <iframe src="@Url.Action(currentModule,"Content", new{@id = id, @module = module, @lesson = lesson})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
@@ -68,29 +68,4 @@
             }, 100);
         }
     </script>
-
-@*     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var iframe = document.querySelector("iframe"); // Selecciona el primer iframe
-            while (!iframe) {
-                var iframe = document.querySelector("iframe");
-            }
-            if (iframe) {
-                iframe.addEventListener("load", function () {
-                    var buttonModulesInIframe = iframe.contentDocument.querySelector("#buttonModulesInIframe");
-
-                    if (buttonModulesInIframe) {
-                        buttonModulesInIframe.addEventListener("click", function (e) {
-                            e.preventDefault(); // Previene el comportamiento predeterminado del enlace
-
-                            var modulesSection = document.querySelector("#modules");
-                            if (modulesSection) {
-                                modulesSection.scrollIntoView({ behavior: "smooth" }); // Desplázate suavemente a la sección "modules"
-                            }
-                        });
-                    }
-                });
-            }
-        });
-    </script> *@
 </body>

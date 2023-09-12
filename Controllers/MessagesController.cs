@@ -20,14 +20,14 @@ namespace Proyect_alfabet_7._0.Controllers
         }
 
         // GET: Messages
-        public async Task<IActionResult> Index(int receiverId, int senderId)
+        public async Task<IActionResult> Index(int id)
         {
             List<Message> receivedMessages = await _context.Messages
-                .Where(r => r.ReceiverId == receiverId)
+                .Where(r => r.ReceiverId == id)
                 .ToListAsync();
 
             List<Message> sentMessages = await _context.Messages
-                .Where(s => s.SenderId == senderId)
+                .Where(s => s.SenderId == id)
                 .ToListAsync();
 
             var viewModel = new MessageViewModel

@@ -8,10 +8,7 @@ iframe {
   }
 
 .icon-link i::before {
-    /*content: '\f015'; Código Unicode del icono Font Awesome */
-    /*font-family: 'Font Awesome 5 Free'; Fuente de Font Awesome */
-    font-weight: 900; /* Peso de la fuente */
-    /*margin-right: 5px; Espacio a la derecha del icono (ajusta según tus necesidades) */
+    font-weight: 900;
 }
 
 snap-tabs {
