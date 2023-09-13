@@ -61,5 +61,19 @@ namespace Proyect_alfabet_7._0.Controllers
                 return View();
             }
         }
+
+        public IActionResult EmailSent()
+        {
+            return View();
+        }
+        public IActionResult EmailError()
+        {
+            return View();
+        }
+        public IActionResult EmailInex()
+        {
+            return View();
+        }
+
     }
 }

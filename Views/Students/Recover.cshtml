@@ -14,11 +14,11 @@
     <h1>Ingrese su email</h1>
     <form method="post" enctype="multipart/form-data" asp-controller="Students" asp-action="SendEmail">
         <p>
-            <i class="fas fa-envelope-square" style="font-size: 2em; color: lightslategray;"></i>
-            <input type="text" name="Email" value="" placeholder="Email" required style="margin-inline-start:30px;">
+            <i class="fas fa-envelope-open-text" style="font-size: 2em; color: lightslategray;"></i>
+            <input type="text" name="Email" placeholder="Email" required style="margin-inline-start:30px;">
         </p>
         <p class="submit">
-            <button type="submit" name="commit" class="btn btn-outline-secondary">
+            <button type="submit" class="btn btn-outline-secondary">
                 Enviar <i class="bi bi-send-fill"></i>
             </button>
         </p>

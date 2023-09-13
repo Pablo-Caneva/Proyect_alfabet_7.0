@@ -22,6 +22,7 @@ namespace Proyect_alfabet_7._0.Controllers
         // GET: Messages
         public async Task<IActionResult> Index(int id)
         {
+            ViewData["id"] = id;
             List<Message> receivedMessages = await _context.Messages
                 .Where(r => r.ReceiverId == id)
                 .ToListAsync();
@@ -35,7 +36,6 @@ namespace Proyect_alfabet_7._0.Controllers
                 ReceivedMessages = receivedMessages,
                 SentMessages = sentMessages
             };
-
             return View(viewModel);
         }
 
@@ -60,10 +60,9 @@ namespace Proyect_alfabet_7._0.Controllers
         }
 
         // GET: Messages/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
-            ViewData["ReceiverId"] = new SelectList(_context.Users, "Id", "Discriminator");
-            ViewData["SenderId"] = new SelectList(_context.Users, "Id", "Discriminator");
+            ViewData["id"] = id;
             return View();
         }
 
@@ -72,17 +71,42 @@ namespace Proyect_alfabet_7._0.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Content,SenderId,ReceiverId")] Message message)
+        public async Task<IActionResult> Create(int id, [Bind("Id,Content,SenderId,SenderName,ReceiverId,ReceiverName")] Message message)
         {
+            ViewData["id"] = id;
             if (ModelState.IsValid)
             {
-                _context.Add(message);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var sender = await _context.UserLogin.FirstOrDefaultAsync(s => s.Id == message.SenderId);
+                if (sender != null) { message.SenderName = sender.UserName; }
+                var receiver = await _context.UserLogin.FirstOrDefaultAsync(u => u.UserName == message.ReceiverName);
+                if (receiver != null)
+                {
+                    message.ReceiverId = receiver.Id;
+                    if (message.Id == message.ReceiverId)
+                    {
+                        ModelState.AddModelError(string.Empty, "No se puede enviar mensajes a uno mismo");
+                        return View();
+                    }
+                    else
+                    {
+                        _context.Add(message);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction("IndexCreate", new {@id =message.SenderId });
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Usuario inexistente");
+                    return View();
+                }
             }
-            ViewData["ReceiverId"] = new SelectList(_context.Users, "Id", "Discriminator", message.ReceiverId);
-            ViewData["SenderId"] = new SelectList(_context.Users, "Id", "Discriminator", message.SenderId);
-            return View(message);
+            return View();
+        }
+
+        public IActionResult IndexCreate(int id)
+        {
+            ViewData["id"] = id;
+            return View();
         }
 
         // GET: Messages/Edit/5

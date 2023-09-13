@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net;
+using System.Net.Mail;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -240,9 +242,37 @@ namespace Proyect_alfabet_7._0.Controllers
             return View();
         }
 
-        public IActionResult SendEmail(string email)
+        [HttpPost]
+        public async Task<IActionResult> SendEmail(string Email)
         {
-            return View();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == Email);
+            if (user != null)
+            {
+                string body = user.UserName.ToString() + " " + user.Password.ToString();
+                try
+                {
+                    var smtpClient = new SmtpClient("smtp.example.com")
+                    {
+                        Credentials = new NetworkCredential("mail","pass"),
+                        EnableSsl = true,
+                    };
+
+                    var mailMessage = new MailMessage
+                    {
+                        From = new MailAddress("mail"),
+                        Subject = "Recuperación de contraseña.",
+                        Body = body,
+                    };
+
+                    mailMessage.To.Add(Email);
+                    return RedirectToAction("EmailSent", "Home");
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("EmailError", "Home");
+                }
+            }
+            return RedirectToAction("EmailInex", "Home");
         }
 
         private bool StudentExists(int id)
