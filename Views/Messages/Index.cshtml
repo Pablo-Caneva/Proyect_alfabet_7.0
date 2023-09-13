@@ -4,36 +4,95 @@
 
 @{
     ViewData["Title"] = "Index";
+    int id = (int)ViewData["id"];
 }
 <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
+    @*Item donde están los mensajes recibidos*@
     <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                Mensajes recibidos <i class="bi bi-box-arrow-in-down"></i>
+            <button class="accordion-button collapsed btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <span style="font-size: 1.2em;">Mensajes Recibidos</span><i class="bi bi-box-arrow-in-down" style="font-size: 1.5em; text-indent: 8px;"></i>
             </button>
         </h2>
         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+            <div class="accordion-body">
+                @if (Model.ReceivedMessages.Count == 0)
+                {
+                    <h1>No hay mensajes</h1>
+                }
+                else
+                {
+                    foreach (var messages in Model.ReceivedMessages)
+                    {
+                        <div class="accordion accordion-flush" id="accordion-@messages.Id">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading-@messages.Id">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@messages.Id" aria-expanded="false" aria-controls="collapse-@messages.Id">
+                                        Enviado por: @messages.SenderName
+                                    </button>
+                                </h2>
+                                <div id="collapse-@messages.Id" class="accordion-collapse collapse" aria-labelledby="heading-@messages.Id" data-bs-parent="#accordion-@messages.Id">
+                                    <div class="accordion-body">@messages.Content</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+            </div>
         </div>
     </div>
+    @*Item donde están los mensajes enviados*@
     <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                Mensajes enviados <i class="bi bi-box-arrow-up"></i>
+            <button class="accordion-button collapsed btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                <span style="font-size: 1.2em;">Mensajes Enviados</span><i class="bi bi-box-arrow-up" style="font-size: 1.5em; text-indent: 8px;"></i>
             </button>
         </h2>
         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+            <div class="accordion-body">
+                @if (Model.SentMessages.Count == 0)
+                {
+                    <h1>No hay mensajes</h1>
+                }
+                else
+                {
+                    foreach (var messages in Model.SentMessages)
+                    {
+                        <div class="accordion accordion-flush" id="accordion-@messages.Id">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading-@messages.Id">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@messages.Id" aria-expanded="false" aria-controls="collapse-@messages.Id">
+                                        Enviado a: @messages.ReceiverName
+                                    </button>
+                                </h2>
+                                <div id="collapse-@messages.Id" class="accordion-collapse collapse" aria-labelledby="heading-@messages.Id" data-bs-parent="#accordion-@messages.Id">
+                                    <div class="accordion-body">@messages.Content</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+            </div>
         </div>
     </div>
+    @*Item con formulario para escribir nuevo mensaje*@
     <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingThree">
             <button class="accordion-button collapsed btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                Escribir nuevo <i class="bi bi-pencil-square"></i>
+                <span style="font-size: 1.2em;">Escribir Nuevo</span><i class="bi bi-pencil-square" style="font-size: 1.5em; text-indent: 8px;"></i>
             </button>
         </h2>
         <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+            <div class="accordion-body">
+                <form asp-area="" asp-controller="Messages" asp-action="Create" method="post">
+                    <button type="submit" class="btn btn-outline-secondary">
+                        <span style="font-size: 1.2em;">Crear Nuevo Mensaje</span><i class="bi bi-pencil-square" style="font-size: 1.5em; text-indent: 8px;"></i>
+                    </button>
+                    <input type="hidden" name="id" value="@id" />
+                </form>
+            </div>
         </div>
     </div>
 </div>

@@ -2,40 +2,38 @@
 
 @{
     ViewData["Title"] = "Create";
+    int id = (int)ViewData["id"];
 }
+<home>
+    <style>
+        body {
+            background: hsl(328, 5%, 75%);
+        }
+    </style>
+</home>
+<div class="login">
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h1>Create</h1>
+        <input asp-for="SenderId" type="hidden" class="form-control" value="@id" />
+        <input asp-for="SenderName" type="hidden" class="form-control" value="Sender" />
+        <input asp-for="ReceiverId" type="hidden" class="form-control" value="@id" />
 
-<h4>Message</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" />
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SenderId" class="control-label"></label>
-                <select asp-for="SenderId" class ="form-control" asp-items="ViewBag.SenderId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="ReceiverId" class="control-label"></label>
-                <select asp-for="ReceiverId" class ="form-control" asp-items="ViewBag.ReceiverId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+        <input asp-for="ReceiverName" class="form-control mb-3" placeholder="Destinatario" />
+        <span asp-validation-for="ReceiverName" class="text-danger"></span>
+
+        <textarea asp-for="Content" class="form-control mb-3" rows="5" placeholder="Escriba su mensaje aquí"></textarea>
+
+        <hr />
+
+        <div class="d-flex justify-content-between align-items-end">
+            <span asp-validation-for="Content" class="text-danger">Debe escribir un mensaje</span>
+            <button type="submit" class="btn btn-outline-secondary mb-3">
+                <span style="font-size: 1.2em;">Enviar</span><i class="fas fa-paper-plane" style="font-size: 1.5em; text-indent: 8px;"></i>
+            </button>
+        </div>
+    </form>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

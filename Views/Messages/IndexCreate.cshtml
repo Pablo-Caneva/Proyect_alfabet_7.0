@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int id = (int)ViewData["id"];
+}
+<head>
+    <style>
+        body {
+            background: hsl(328, 5%, 75%);
+        }
+    </style>
+</head>
+<body>
+    <div class="login justify-content-center align-content-center">
+        <div><i class="bi bi-send-check-fill" style="font-size: 3em; color: lightslategray;"></i><h1>Mensaje Enviado</h1></div>
+    </div>
+    <script>
+        setTimeout(function () {
+            var id = @id;
+            window.location.href = '@Url.Action("Index", "Messages", new { @id = id})'
+            .replace('id', id);
+        }, 3000);
+    </script>
+</body>

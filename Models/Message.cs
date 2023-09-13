@@ -16,10 +16,16 @@ namespace Proyect_alfabet_7._0.Models
         [ForeignKey("Sender")]
         public int SenderId { get; set; }
 
+        public string? SenderName { get; set; } = null;
+
         [ForeignKey("Receiver")]
         public int ReceiverId { get; set;}
 
-        public virtual User Sender { get; set; }
-        public virtual User Receiver { get; set; }
+        public string? ReceiverName { get; set; } = null;
+
+        public virtual User? Sender { get; set; } = null;
+        public virtual User? Receiver { get; set; } = null;
+
+        public Message() { }
     }
 }
