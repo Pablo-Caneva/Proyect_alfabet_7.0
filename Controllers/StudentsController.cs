@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proyect_alfabet_7._0.Data;
 using Proyect_alfabet_7._0.Models;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 
 namespace Proyect_alfabet_7._0.Controllers
 {
@@ -31,6 +32,11 @@ namespace Proyect_alfabet_7._0.Controllers
         }
 
         public IActionResult IndexCreate()
+        {
+            return View();
+        }
+
+        public IActionResult UserExists()
         {
             return View();
         }
@@ -82,6 +88,11 @@ namespace Proyect_alfabet_7._0.Controllers
         {
             if (ModelState.IsValid)
             {
+                bool userNameExists = await _context.Users.AnyAsync(s => s.UserName == student.UserName);
+                if (userNameExists)
+                {
+                    return RedirectToAction(nameof(UserExists));
+                }
                 var admin = await _context.Admins.FirstOrDefaultAsync();
                 byte[]? profilePictureBytes = null;
                 using (var memoryStream = new MemoryStream())
@@ -92,7 +103,11 @@ namespace Proyect_alfabet_7._0.Controllers
                         profilePictureBytes = memoryStream.ToArray();
                     }
                 }
-                student.TutorId = admin.Id;
+                if (admin != null)
+                {
+                    student.TutorId = admin.Id;
+                }
+
                 _context.Add(student);
                 await _context.SaveChangesAsync();
 
