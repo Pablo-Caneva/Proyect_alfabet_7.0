@@ -1,22 +1,19 @@
-﻿@model IEnumerable<Proyect_alfabet_7._0.Models.UserLogin>
+﻿@model IEnumerable<Proyect_alfabet_7._0.Models.User>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Usuarios del sistema</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.UserName)
+                Usuario
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Password)
+                Ciudad
             </th>
             <th></th>
         </tr>
@@ -28,12 +25,12 @@
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Password)
+                @Html.DisplayFor(modelItem => item.City)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Borrar usuario</a>
             </td>
         </tr>
 }

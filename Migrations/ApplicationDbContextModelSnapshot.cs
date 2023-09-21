@@ -48,7 +48,7 @@ namespace Proyect_alfabet_7._0.Migrations
 
                     b.HasIndex("ModuleId");
 
-                    b.ToTable("Lessons");
+                    b.ToTable("Lessons", (string)null);
                 });
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Message", b =>
@@ -81,7 +81,7 @@ namespace Proyect_alfabet_7._0.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Messages");
+                    b.ToTable("Messages", (string)null);
                 });
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Module", b =>
@@ -108,7 +108,7 @@ namespace Proyect_alfabet_7._0.Migrations
                     b.HasIndex("Number")
                         .IsUnique();
 
-                    b.ToTable("Modules");
+                    b.ToTable("Modules", (string)null);
                 });
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.ProfilePic", b =>
@@ -130,7 +130,7 @@ namespace Proyect_alfabet_7._0.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ProfilePic");
+                    b.ToTable("ProfilePic", (string)null);
                 });
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Progress", b =>
@@ -159,7 +159,7 @@ namespace Proyect_alfabet_7._0.Migrations
                     b.HasIndex("StudentId")
                         .IsUnique();
 
-                    b.ToTable("Progress");
+                    b.ToTable("Progress", (string)null);
                 });
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.Ticket", b =>
@@ -201,7 +201,7 @@ namespace Proyect_alfabet_7._0.Migrations
 
                     b.HasIndex("ResponsableId");
 
-                    b.ToTable("Tickets");
+                    b.ToTable("Tickets", (string)null);
                 });
 
             modelBuilder.Entity("Proyect_alfabet_7._0.Models.UserLogin", b =>
@@ -229,7 +229,7 @@ namespace Proyect_alfabet_7._0.Migrations
                     b.HasIndex("UserName")
                         .IsUnique();
 
-                    b.ToTable("UserLogin");
+                    b.ToTable("UserLogin", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("UserLogin");
 

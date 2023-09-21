@@ -22,8 +22,8 @@ namespace Proyect_alfabet_7._0.Controllers
         // GET: UserLogins
         public async Task<IActionResult> Index()
         {
-              return _context.UserLogin != null ? 
-                          View(await _context.UserLogin.ToListAsync()) :
+            return _context.Users != null ? 
+                          View(await _context.Users.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.UserLogin'  is null.");
         }
 
@@ -70,17 +70,17 @@ namespace Proyect_alfabet_7._0.Controllers
         // GET: UserLogins/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.UserLogin == null)
+            if (id == null || _context.Users == null)
             {
                 return NotFound();
             }
 
-            var userLogin = await _context.UserLogin.FindAsync(id);
-            if (userLogin == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            return View(userLogin);
+            return View(user);
         }
 
         // POST: UserLogins/Edit/5
