@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int id = (int)ViewData["id"];
+    int module = (int)ViewData["module"];
+    int lesson = (int)ViewData["lesson"];
+    int nextLesson = lesson + 1;
+    int nextModule = module + 1;
+}
+<div id="lesson14" class="lesson_container">
+    <div class="row">
+        <img src="/Content/Module 1/11img.png" class="img-fluid">
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col justify-content-center">
+                <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                    <img src="/Content/Module 1/claro.png" class="img-thumbnail" height="120" width="120">
+                </a>
+            </div>
+            <div class="col justify-content-center">
+                <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                    <img src="/Content/Module 1/ford.png" class="img-thumbnail" height="120" width="120">
+                </a>
+            </div>
+            <div class="col justify-content-center">
+                <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                    <img src="/Content/Module 1/cocacola.png" class="img-thumbnail" height="120" width="120">
+                </a>
+            </div>
+            <div class="col justify-content-center">
+                <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                    <img src="/Content/Module 1/pepsi.png" class="img-thumbnail" height="120" width="120">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/Module1.js"></script>

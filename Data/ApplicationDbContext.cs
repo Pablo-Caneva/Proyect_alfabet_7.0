@@ -47,5 +47,6 @@ namespace Proyect_alfabet_7._0.Data
             modelBuilder.Entity<Module>()
                 .HasIndex(m => m.Number).IsUnique();
         }
+        public DbSet<Proyect_alfabet_7._0.Models.Activity> Activity { get; set; } = default!;
     }
 }
