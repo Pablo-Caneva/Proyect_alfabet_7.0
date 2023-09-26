@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int id = (int)ViewData["id"];
+    int module = (int)ViewData["module"];
+    int lesson = (int)ViewData["lesson"];
+    int nextLesson = lesson + 1;
+    int nextModule = module + 1;
+}
+<div id="lesson17" class="lesson_container">
+    <div class="row">
+        Audio: Cuál de los siguientes nombres llevan la letra A?
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="d-flex justify-content-around">
+                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck1"><span style="font-size: 2em;">Ana</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck2"><span style="font-size: 2em;">Ester</span></label>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="d-flex justify-content-around">
+                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck3"><span style="font-size: 2em;">Piero</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck4"><span style="font-size: 2em;">Andrés</span></label>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="d-flex justify-content-around">
+                <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck5"><span style="font-size: 2em;">Irineo</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck6"><span style="font-size: 2em;">Analía</span></label>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="d-flex justify-content-around">
+                <input type="checkbox" class="btn-check" id="btncheck7" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck7"><span style="font-size: 2em;">Ángela</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck8" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck8"><span style="font-size: 2em;">Amparo</span></label>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="d-flex justify-content-around">
+                <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck9"><span style="font-size: 2em;">Alfredo</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck10"><span style="font-size: 2em;">Ernesto</span></label>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="d-flex justify-content-around">
+                <input type="checkbox" class="btn-check" id="btncheck11" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck11"><span style="font-size: 2em;">Guillermo</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck12" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck12"><span style="font-size: 2em;">Aurelio</span></label>
+            </div>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-center">
+            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="button" class="btn btn-outline-secondary d-none" id="buttonButtonEx16">
+                    <i class="fas fa-arrow-alt-circle-right" style="font-size: 2em"></i>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="~/js/Module1.js"></script>

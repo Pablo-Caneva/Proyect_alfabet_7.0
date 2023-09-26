@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int id = (int)ViewData["id"];
+    int module = (int)ViewData["module"];
+    int lesson = (int)ViewData["lesson"];
+    int nextLesson = lesson + 1;
+    int nextModule = module + 1;
+}
+<div id="lesson9" class="lesson_container">
+    <div class="row">
+        <div class="container-fluid text-center">
+            <img src="/Content/Module 1/07img.png" class="img-fluid">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="d-flex justify-content-around">
+            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="button" class="btn btn-outline-secondary"><i class="fas fa-check-circle" style="font-size: 2em"></i></button>
+            </a>
+            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                <button type="button" class="btn btn-outline-secondary"><i class="fas fa-times-circle" style="font-size: 2em"></i></button>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="~/js/Module1.js"></script>

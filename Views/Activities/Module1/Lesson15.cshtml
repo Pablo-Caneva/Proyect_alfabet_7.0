@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int id = (int)ViewData["id"];
+    int module = (int)ViewData["module"];
+    int lesson = (int)ViewData["lesson"];
+    int nextLesson = lesson + 1;
+    int nextModule = module + 1;
+}
+<div id="lesson15" class="lesson_container">
+    <div class="row">
+        Audio: Acá hay varias letras y número para elegir. ¿Sabés cuáles son las letras? Elegilas y presioná en el botón de abajo.
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="d-flex justify-content-between">
+                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck1"><span style="font-size: 3em;">a</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck2"><span style="font-size: 3em;">9</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck3"><span style="font-size: 3em;">3</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck4"><span style="font-size: 3em;">L</span></label>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="d-flex justify-content-between">
+                <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck5"><span style="font-size: 3em;">2</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck6"><span style="font-size: 3em;">d</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck7" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck7"><span style="font-size: 3em;">f</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck8" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck8"><span style="font-size: 3em;">R</span></label>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="d-flex justify-content-between">
+                <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck9"><span style="font-size: 3em;">E</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck10"><span style="font-size: 3em;">1</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck11" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck11"><span style="font-size: 3em;">8</span></label>
+
+                <input type="checkbox" class="btn-check" id="btncheck12" autocomplete="off">
+                <label class="btn btn-outline-dark btn-lg" for="btncheck12"><span style="font-size: 3em;">U</span></label>
+            </div>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-center">
+            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                <button type="button" class="btn btn-outline-secondary d-none" id="buttonButtonEx16">
+                    <i class="fas fa-arrow-alt-circle-right" style="font-size: 2em"></i>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="~/js/Module1.js"></script>

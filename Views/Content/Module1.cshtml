@@ -8,307 +8,628 @@
     int nextLesson = lesson + 1;
     int nextModule = module + 1;
 }
-
 @switch (lesson)
 {
 
     case 1:
-        <div id="lesson1" class="lesson_container">LESSON 1
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson1" class="lesson_container">
+            <div class="row">
+                Audio: A continuación se presentarán imágenes. Elige la tilde (abajo a la izquierda) si la imagen no contiene números. Elige la cruz (abajo a la derecha) si contiene números. Elige el símblo con la flecha para empezar.
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-alt-circle-right" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 2:
-        <div id="lesson2" class="lesson_container">LESSON 2
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson2" class="lesson_container">
+            <div class="row">
+                <div class="container-fluid text-center">
+                    <img src="/Content/Module 1/00img.png" class="img-fluid">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-around">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-check-circle" style="font-size: 2em"></i></button>
+                    </a>
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-times-circle" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 3:
-        <div id="lesson3" class="lesson_container">LESSON 3
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson3" class="lesson_container">
+            <div class="row">
+                <div class="container-fluid text-center">
+                    <img src="/Content/Module 1/01img.png" class="img-fluid">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-around">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-check-circle" style="font-size: 2em"></i></button>
+                    </a>
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-times-circle" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 4:
-        <div id="lesson4" class="lesson_container">LESSON 4
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson4" class="lesson_container">
+            <div class="row">
+                <div class="container-fluid text-center">
+                    <img src="/Content/Module 1/02img.png" class="img-fluid">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-around">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-check-circle" style="font-size: 2em"></i></button>
+                    </a>
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-times-circle" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 5:
-        <div id="lesson5" class="lesson_container">LESSON 5
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson5" class="lesson_container">
+            <div class="row">
+                <div class="container-fluid text-center">
+                    <img src="/Content/Module 1/03img.png" class="img-fluid">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-around">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-check-circle" style="font-size: 2em"></i></button>
+                    </a>
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-times-circle" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 6:
-        <div id="lesson6" class="lesson_container">LESSON 6
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson6" class="lesson_container">
+            <div class="row">
+                <div class="container-fluid text-center">
+                    <img src="/Content/Module 1/04img.png" class="img-fluid">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-around">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-check-circle" style="font-size: 2em"></i></button>
+                    </a>
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-times-circle" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 7:
-        <div id="lesson7" class="lesson_container">LESSON 7
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson7" class="lesson_container">
+            <div class="row">
+                <div class="container-fluid text-center">
+                    <img src="/Content/Module 1/05img.png" class="img-fluid">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-around">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-check-circle" style="font-size: 2em"></i></button>
+                    </a>
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-times-circle" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 8:
-        <div id="lesson8" class="lesson_container">LESSON 8
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson8" class="lesson_container">
+            <div class="row">
+                <div class="container-fluid text-center">
+                    <img src="/Content/Module 1/06img.png" class="img-fluid">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-around">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-check-circle" style="font-size: 2em"></i></button>
+                    </a>
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-times-circle" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 9:
-        <div id="lesson9" class="lesson_container">LESSON 9
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson9" class="lesson_container">
+            <div class="row">
+                <div class="container-fluid text-center">
+                    <img src="/Content/Module 1/07img.png" class="img-fluid">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-around">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-check-circle" style="font-size: 2em"></i></button>
+                    </a>
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-times-circle" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 10:
-        <div id="lesson10" class="lesson_container">LESSON 10
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson10" class="lesson_container">
+            <div class="row">
+                Audio: Como habrás visto, en la vida estamos rodeados de palabras y números que vemos siempre. En la siguiente actividad, te presentaremos ímágenes de productos conocidos. ¿Sabés a que marcas pertenecen cada uno? Elegí la opción correcta en cada caso.
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-alt-circle-right" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 11:
-        <div id="lesson11" class="lesson_container">LESSON 11
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson11" class="lesson_container">
+            <div class="row">
+                <img src="/Content/Module 1/08img.png" class="img-fluid">
+            </div>
+            <hr>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/claro.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/ford.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/cocacola.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                            <img src="/Content/Module 1/pepsi.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         break;
     case 12:
-        <div id="lesson12" class="lesson_container">LESSON 12
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson12" class="lesson_container">
+            <div class="row">
+                <img src="/Content/Module 1/09img.png" class="img-fluid">
+            </div>
+            <hr>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                            <img src="/Content/Module 1/claro.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/ford.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/cocacola.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/pepsi.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         break;
     case 13:
-        <div id="lesson13" class="lesson_container">LESSON 13
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson13" class="lesson_container">
+            <div class="row">
+                <img src="/Content/Module 1/10img.png" class="img-fluid">
+            </div>
+            <hr>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/claro.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                            <img src="/Content/Module 1/ford.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/cocacola.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/pepsi.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         break;
     case 14:
-        <div id="lesson14" class="lesson_container">LESSON 14
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson14" class="lesson_container">
+            <div class="row">
+                <img src="/Content/Module 1/11img.png" class="img-fluid">
+            </div>
+            <hr>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/claro.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/ford.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                            <img src="/Content/Module 1/cocacola.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                    <div class="col justify-content-center">
+                        <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+                            <img src="/Content/Module 1/pepsi.png" class="img-thumbnail" height="120" width="120">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         break;
     case 15:
-        <div id="lesson15" class="lesson_container">LESSON 15
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson15" class="lesson_container">
+            <div class="row">
+                Audio: Acá hay varias letras y número para elegir. ¿Sabés cuáles son las letras? Elegilas y presioná en el botón de abajo.
+            </div>
+            <hr>
+            <div class="container">
+                <div class="row mb-3">
+                    <div class="d-flex justify-content-between">
+                        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck1"><span style="font-size: 3em;">a</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck2"><span style="font-size: 3em;">9</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck3"><span style="font-size: 3em;">3</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck4"><span style="font-size: 3em;">L</span></label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="d-flex justify-content-between">
+                        <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck5"><span style="font-size: 3em;">2</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck6"><span style="font-size: 3em;">d</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck7" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck7"><span style="font-size: 3em;">f</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck8" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck8"><span style="font-size: 3em;">R</span></label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="d-flex justify-content-between">
+                        <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck9"><span style="font-size: 3em;">E</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck10"><span style="font-size: 3em;">1</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck11" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck11"><span style="font-size: 3em;">8</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck12" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck12"><span style="font-size: 3em;">U</span></label>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-center">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary d-none" id="buttonButtonEx16">
+                            <i class="fas fa-arrow-alt-circle-right" style="font-size: 2em"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 16:
-        <div id="lesson16" class="lesson_container">LESSON 16
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson16" class="lesson_container">
+            <div class="row">
+                POEMA VOCALES
+            </div>
+            <hr>
+            <div class="row">
+                <div class="d-flex justify-content-around">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-alt-circle-right" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 17:
-        <div id="lesson17" class="lesson_container">LESSON 17
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson17" class="lesson_container">
+            <div class="row">
+                Audio: Cuál de los siguientes nombres llevan la letra A?
+            </div>
+            <hr>
+            <div class="container">
+                <div class="row mb-3">
+                    <div class="d-flex justify-content-around">
+                        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck1"><span style="font-size: 2em;">Ana</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck2"><span style="font-size: 2em;">Ester</span></label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="d-flex justify-content-around">
+                        <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck3"><span style="font-size: 2em;">Piero</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck4"><span style="font-size: 2em;">Andrés</span></label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="d-flex justify-content-around">
+                        <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck5"><span style="font-size: 2em;">Irineo</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck6"><span style="font-size: 2em;">Analía</span></label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="d-flex justify-content-around">
+                        <input type="checkbox" class="btn-check" id="btncheck7" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck7"><span style="font-size: 2em;">Ángela</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck8" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck8"><span style="font-size: 2em;">Amparo</span></label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="d-flex justify-content-around">
+                        <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck9"><span style="font-size: 2em;">Alfredo</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck10"><span style="font-size: 2em;">Ernesto</span></label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="d-flex justify-content-around">
+                        <input type="checkbox" class="btn-check" id="btncheck11" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck11"><span style="font-size: 2em;">Guillermo</span></label>
+
+                        <input type="checkbox" class="btn-check" id="btncheck12" autocomplete="off">
+                        <label class="btn btn-outline-dark btn-lg" for="btncheck12"><span style="font-size: 2em;">Aurelio</span></label>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-center">
+                    <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary d-none" id="buttonButtonEx16">
+                            <i class="fas fa-arrow-alt-circle-right" style="font-size: 2em"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 18:
-        <div id="lesson18" class="lesson_container">LESSON 18
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
-            </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
-            </a>
+        <div id="lesson18" class="lesson_container">
+            <div class="row">
+                Audio: a continuación, escribe tres nombres que empiecen con la letra A. Luego, apreta en el botón de la flecha que está abajo
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <a asp-controller="Content" asp-action="M1C18" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+                        <button type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-alt-circle-right" style="font-size: 2em"></i></button>
+                    </a>
+                </div>
+            </div>
         </div>
         break;
     case 19:
         <div id="lesson19" class="lesson_container">LESSON 19
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 20:
         <div id="lesson20" class="lesson_container">LESSON 20
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 21:
         <div id="lesson21" class="lesson_container">LESSON 21
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 22:
         <div id="lesson22" class="lesson_container">LESSON 22
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 23:
         <div id="lesson23" class="lesson_container">LESSON 23
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 24:
         <div id="lesson24" class="lesson_container">LESSON 24
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 25:
         <div id="lesson25" class="lesson_container">LESSON 25
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 26:
         <div id="lesson26" class="lesson_container">LESSON 26
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 27:
         <div id="lesson27" class="lesson_container">LESSON 27
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 28:
         <div id="lesson28" class="lesson_container">LESSON 28
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 29:
         <div id="lesson29" class="lesson_container">LESSON 29
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
     case 30:
         <div id="lesson30" class="lesson_container">LESSON 30
             <a asp-controller="Content" asp-action="Module2" asp-route-id="@id" asp-route-module="@nextModule" asp-route-lesson="1">
-                <button type="submit" class="btn btn-outline-secondary">TRUE</button>
+                <button type="button" class="btn btn-outline-secondary">TRUE</button>
             </a>
             <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
-                <button type="submit" class="btn btn-outline-secondary">FALSE</button>
+                <button type="button" class="btn btn-outline-secondary">FALSE</button>
             </a>
         </div>
         break;
@@ -316,3 +637,4 @@
         <div id="default">ERROR</div>
         break;
 }
+<script src="~/js/Module1.js"></script>

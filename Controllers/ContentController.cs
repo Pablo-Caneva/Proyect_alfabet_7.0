@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Proyect_alfabet_7._0.Data;
 using Proyect_alfabet_7._0.Models;
 using Proyect_alfabet_7._0.Repository;
+using System.Text.RegularExpressions;
 
 namespace Proyect_alfabet_7._0.Controllers
 {
@@ -106,6 +107,22 @@ namespace Proyect_alfabet_7._0.Controllers
             ViewData["module"] = module;
             ViewData["lesson"] = lesson;
             return View();
+        }
+        private bool IsValidName(string name)
+        {
+            return Regex.IsMatch(name, "^[aA][a-zA-Z]*$");
+        }
+
+        public IActionResult M1C18(int id, int module, int lesson, string firstName, string secondName, string thirdName)
+        {
+            if (IsValidName(firstName) && (IsValidName(secondName) && IsValidName(thirdName)))
+            {
+                return RedirectToAction("Module1", "Content", new { @id = id, @module = module, @lesson = lesson+1 });
+            }
+            else
+            {
+                return RedirectToAction("Module1", "Content", new { @id = id, @module = module, @lesson = lesson });
+            }
         }
     }
 }
