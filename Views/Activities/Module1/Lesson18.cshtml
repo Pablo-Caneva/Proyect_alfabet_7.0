@@ -8,30 +8,36 @@
     int nextLesson = lesson + 1;
     int nextModule = module + 1;
 }
+
 <div id="lesson18" class="lesson_container">
+
     <div class="row">
         Audio: a continuación, escribe tres nombres que empiecen con la letra A. Luego, apreta en el botón de la flecha que está abajo
     </div>
-    <div class="row">
-        <div class="d-flex justify-content-center">
-            <input>
-        </div>
-    </div>
-    <div class="row">
-        <div class="d-flex justify-content-center">
-            <input>
-        </div>
-    </div>
-    <div class="row">
-        <div class="d-flex justify-content-center">
-            <input>
-        </div>
-    </div>
-    <div class="row">
-        <div class="d-flex justify-content-center">
-            <a asp-controller="Content" asp-action="M1C18" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
-                <button type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-alt-circle-right" style="font-size: 2em"></i></button>
-            </a>
+    <div class="login">
+        <div class="row">
+            <form asp-controller="Content" asp-action="M1C18" method="post">
+                <input name="id" type="hidden" class="form-control" value="@id" required />
+                <input name="module" type="hidden" class="form-control" value="@module" required />
+                <input name="lesson" type="hidden" class="form-control" value="@lesson" required />
+                <div class="d-flex justify-content-center">
+                    <input type="text" name="firstName" class="form-control mb-3" required>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <input type="text" name="secondName" class="form-control mb-3" required>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <input type="text" name="thirdName" class="form-control mb-3" required>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-outline-secondary mb-3">
+                            <i class="fas fa-arrow-alt-circle-right" style="font-size: 2em"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

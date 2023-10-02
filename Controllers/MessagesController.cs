@@ -25,10 +25,12 @@ namespace Proyect_alfabet_7._0.Controllers
             ViewData["id"] = id;
             List<Message> receivedMessages = await _context.Messages
                 .Where(r => r.ReceiverId == id)
+                .OrderByDescending(r => r.Id)
                 .ToListAsync();
 
             List<Message> sentMessages = await _context.Messages
                 .Where(s => s.SenderId == id)
+                .OrderByDescending(s => s.Id)
                 .ToListAsync();
 
             var viewModel = new MessageViewModel
