@@ -12,6 +12,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 builder.Services.AddScoped<ILogin, AuthenticateLogin>();
 builder.Services.AddScoped<IProgressCalculator, ProgressDataCalculator>();
+builder.Services.AddScoped<IActivitiesChecker, ActivitiesChecker>();
 
 var app = builder.Build();
 

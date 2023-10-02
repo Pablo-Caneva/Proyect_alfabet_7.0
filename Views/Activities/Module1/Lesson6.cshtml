@@ -17,10 +17,10 @@
     <hr>
     <div class="row">
         <div class="d-flex justify-content-around">
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
+            <a asp-controller="Activities" asp-action="Right" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@nextLesson">
                 <button type="button" class="btn btn-outline-secondary"><i class="fas fa-check-circle" style="font-size: 2em"></i></button>
             </a>
-            <a asp-controller="Content" asp-action="Module1" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
+            <a asp-controller="Activities" asp-action="Wrong" asp-route-id="@id" asp-route-module="@module" asp-route-lesson="@lesson">
                 <button type="button" class="btn btn-outline-secondary"><i class="fas fa-times-circle" style="font-size: 2em"></i></button>
             </a>
         </div>

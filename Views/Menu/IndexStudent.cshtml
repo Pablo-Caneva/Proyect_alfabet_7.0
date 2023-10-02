@@ -53,7 +53,7 @@
                         <iframe src="@Url.Action("Index", "Messages", new {@id = id})" width="450" height="793" frameborder="0" scrolling="yes"></iframe>
                     </article>
                     <article id="modules">
-                        <iframe src="@Url.Action(currentModule,"Content", new{@id = id, @module = module, @lesson = lesson})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
+                        <iframe src="@Url.Action("Module","Content", new{@id = id, @module = module, @lesson = lesson})" width="450" height="793" frameborder="0" scrolling="no"></iframe>
                     </article>
                 </section>
             </snap-tabs>
