@@ -1,0 +1,37 @@
+﻿@model Proyect_alfabet_7._0.Models.ModuleViewModel
+
+@{
+    int i = 0;
+}
+<div class="accordion accordion-flush mt-3" id="accordionFlushExample">
+    @foreach (var Module in Model.modules)
+    {
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flushHeading-@Module.Id">
+                <button class="accordion-button collapsed btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#flush-@Module.Id" aria-expanded="false" aria-controls="flush-@Module.Id">
+                    <span style="font-size: 1.2em;">Modulo @Module.Number</span><i class="bi bi-box-arrow-in-down" style="font-size: 1.5em; text-indent: 8px;"></i>
+                </button>
+            </h2>
+            <div id="flush-@Module.Id" class="accordion-collapse collapse" aria-labelledby="flush-@Module.Id" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    @foreach (var Lesson in Model.lessonsList[i])
+                    {
+                        @if (Model.lessonsList[i].Count == 0)
+                        {
+                            <h1>No hay clases en este módulo</h1>
+                        }
+                        else
+                        {
+                            <a asp-controller="Activities" asp-action="GetLessonTutor" asp-route-module="@Module.Number" asp-route-lesson="@Lesson.Number">
+                                <div class="d-grid mb-2">
+                                    <button class="button btn btn-outline-secondary">Clase @Lesson.Number</button>
+                                </div>
+                            </a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        i++;
+    }
+</div>

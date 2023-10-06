@@ -29,6 +29,14 @@ namespace Proyect_alfabet_7._0.Controllers
             ViewData["lesson"] = lesson;
             return View($"~/Views/Activities{lessonNumber}.cshtml");
         }
+        public IActionResult GetLessonTutor(int module, int lesson)
+        {
+            string lessonNumber = $"/Module{module}/Lesson{lesson}";
+            ViewData["module"] = module;
+            ViewData["lesson"] = lesson;
+            ViewData["id"] = 0;
+            return View($"~/Views/Activities{lessonNumber}.cshtml");
+        }
 
         public IActionResult StartsWith(int id, int module, int lesson, List<string> words, char firstLetter)
         {

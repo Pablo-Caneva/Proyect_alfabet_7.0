@@ -31,7 +31,10 @@ namespace Proyect_alfabet_7._0.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Module(int id, int module, int lesson)
         {
-            Debug.WriteLine($"Received lesson parameter: {lesson}");
+            if (id == 0)
+            {
+                return RedirectToAction("Index", "Modules");
+            }
             var progress = await _context.Progress.FirstOrDefaultAsync(s => s.StudentId == id);
             if (progress != null)
             {
@@ -55,6 +58,12 @@ namespace Proyect_alfabet_7._0.Controllers
         {
             return Regex.IsMatch(name, "^[aA][a-zA-Z]*$");
         }
+        //public async Task<IActionResult> Module(int module, int lesson)
+        //{
+        //    ViewData["module"] = module;
+        //    ViewData["lesson"] = lesson;
+        //    return RedirectToAction("GetLesson", "Activities", new { @module = module, @lesson = lesson });
+        //}
         public IActionResult M1C18(int id, int module, int lesson, string firstName, string secondName, string thirdName)
         {
             List<string> names = new List<string>();
