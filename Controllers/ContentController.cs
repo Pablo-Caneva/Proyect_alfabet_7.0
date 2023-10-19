@@ -54,6 +54,7 @@ namespace Proyect_alfabet_7._0.Controllers
             ViewData["lesson"] = lesson;
             return RedirectToAction("GetLesson", "Activities", new { @id = id, @module = module, @lesson = lesson });
         }
+
         private bool IsValidName(string name)
         {
             return Regex.IsMatch(name, "^[aA][a-zA-Z]*$");
@@ -64,6 +65,18 @@ namespace Proyect_alfabet_7._0.Controllers
         //    ViewData["lesson"] = lesson;
         //    return RedirectToAction("GetLesson", "Activities", new { @module = module, @lesson = lesson });
         //}
+
+        /// <summary>
+        /// Acción para el modulo 1 lesson 18.
+        /// TODO: Mejorar la función para hacerla más abstracta.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="module"></param>
+        /// <param name="lesson"></param>
+        /// <param name="firstName"></param>
+        /// <param name="secondName"></param>
+        /// <param name="thirdName"></param>
+        /// <returns></returns>
         public IActionResult M1C18(int id, int module, int lesson, string firstName, string secondName, string thirdName)
         {
             List<string> names = new List<string>();

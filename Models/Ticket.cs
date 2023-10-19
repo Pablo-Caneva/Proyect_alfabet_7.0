@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Proyect_alfabet_7._0.Models
 {
     /// <summary>
-    /// Esta clase es de tickets
+    /// Esta clase es de tickets.
+    /// TODO: implementación del sistema.
     /// </summary>
     public class Ticket
     {

@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Proyect_alfabet_7._0.Models
 {
+    /// <summary>
+    /// Las lecciones son los componentes de los módulos.
+    /// </summary>
     public class Lesson
     {
         [Key]

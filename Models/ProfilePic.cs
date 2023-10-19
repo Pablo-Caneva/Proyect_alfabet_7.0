@@ -2,6 +2,9 @@
 
 namespace Proyect_alfabet_7._0.Models
 {
+    /// <summary>
+    /// Clase que maneja el la información relacionada a la foto de perfil del usuario.
+    /// </summary>
     public class ProfilePic
     {
         [Key]

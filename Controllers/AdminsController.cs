@@ -22,6 +22,12 @@ namespace Proyect_alfabet_7._0.Controllers
             _progressCalculator = progressCalculator;
         }
 
+        /// <summary>
+        /// Tarea asincrónica que guarda la asignación del estudiante al tutor elegido.
+        /// </summary>
+        /// <param name="studentId"></param>
+        /// <param name="tutorId"></param>
+        /// <returns></returns>
         public async Task<IActionResult> SaveTutorAssignment (int studentId, int tutorId)
         {
             var student = await _context.Students.FindAsync(studentId);
@@ -39,6 +45,11 @@ namespace Proyect_alfabet_7._0.Controllers
             return RedirectToAction("Index", new {@id = 3});
         }
 
+        /// <summary>
+        /// Tarea asincrónica que muestra los estudiantes que no tienen tutor asignado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Admins
         public async Task<IActionResult> Index(int id)
         {
@@ -60,6 +71,11 @@ namespace Proyect_alfabet_7._0.Controllers
 
         }
 
+        /// <summary>
+        /// Tarea asincrónica que muestra el perfil del usuario Admin logueado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Admins/Details/5
         public async Task<IActionResult> Details(int? id)
         {

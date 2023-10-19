@@ -4,7 +4,7 @@ using Proyect_alfabet_7._0.Data;
 namespace Proyect_alfabet_7._0.Repository
 {
     /// <summary>
-    /// Calculadora para saber progreso, módulo actual y lección que debe realizar un estudiante.
+    /// Calculadora para saber progreso, módulo actual y lección que debe realizar un estudiante. Implementa las funciones de IProgressCalculator
     /// </summary>
     public class ProgressDataCalculator : IProgressCalculator
     {
@@ -57,7 +57,7 @@ namespace Proyect_alfabet_7._0.Repository
         }
 
         /// <summary>
-        /// Devuelve la lección que debe realizar el estudiante a continuación
+        /// Devuelve la lección que debe realizar el estudiante a continuación.
         /// </summary>
         /// <param name="studentId"></param>
         /// <returns></returns>
