@@ -2,6 +2,9 @@
 
 namespace Proyect_alfabet_7._0.Models
 {
+    /// <summary>
+    /// Los módulos son los componentes centrales que agrupan lecciones relacionadas entre sí.
+    /// </summary>
     public class Module
     {
         [Key]

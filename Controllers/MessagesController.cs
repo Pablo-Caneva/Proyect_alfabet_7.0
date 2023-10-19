@@ -19,6 +19,11 @@ namespace Proyect_alfabet_7._0.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Acción asincrónica que recibe un id de usuario y crea una lista con los mensajes recibidos y enviados.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Messages
         public async Task<IActionResult> Index(int id)
         {
@@ -41,6 +46,11 @@ namespace Proyect_alfabet_7._0.Controllers
             return View(viewModel);
         }
 
+        /// <summary>
+        /// No en uso.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Messages/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -61,6 +71,11 @@ namespace Proyect_alfabet_7._0.Controllers
             return View(message);
         }
 
+        /// <summary>
+        /// Acción GET para la creación de mensajes.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Messages/Create
         public IActionResult Create(int id)
         {
@@ -68,6 +83,12 @@ namespace Proyect_alfabet_7._0.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Acción POST para la creación de mensajes. Recibe la información del receptor y el mensaje. Se busca el id según el nombre de usuario y muestra el mensaje de error o de envío correcto según corresponda.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
         // POST: Messages/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -105,6 +126,11 @@ namespace Proyect_alfabet_7._0.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Acción para la vista de mensaje enviado correctamente.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IActionResult IndexCreate(int id)
         {
             ViewData["id"] = id;

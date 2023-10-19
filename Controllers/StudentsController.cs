@@ -31,16 +31,29 @@ namespace Proyect_alfabet_7._0.Controllers
                           Problem("Entity set 'ApplicationDbContext.Students'  is null.");
         }
 
+        /// <summary>
+        /// Acción para la vista que se muestra cuando se crea un usuario exitosamente.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult IndexCreate()
         {
             return View();
         }
 
+        /// <summary>
+        /// Acción para la vista que se muestra cuando se intenta crear un usuario con nombre ya existente.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult UserExists()
         {
             return View();
         }
 
+        /// <summary>
+        /// Acción asincrónica para ver el perfil del estudiante logueado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Students/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -79,6 +92,11 @@ namespace Proyect_alfabet_7._0.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Acción asincrónica para crear un usuario nuevo de tipo estudiante.
+        /// </summary>
+        /// <param name="student"></param>
+        /// <returns></returns>
         // POST: Students/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -152,6 +170,12 @@ namespace Proyect_alfabet_7._0.Controllers
             return View(student);
         }
 
+        /// <summary>
+        /// Acción asincrónica para editar el perfil de usuario tipo estudiante.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="student"></param>
+        /// <returns></returns>
         // POST: Students/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

@@ -19,6 +19,10 @@ namespace Proyect_alfabet_7._0.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Acción asincrónica que lista los módulos y las lecciones que tiene cada uno y los envía a la vista.
+        /// </summary>
+        /// <returns></returns>
         // GET: Modules
         public async Task<IActionResult> Index()
         {
@@ -171,6 +175,11 @@ namespace Proyect_alfabet_7._0.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        /// <summary>
+        /// Función privada para ver si el módulo existe en database.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool ModuleExists(int id)
         {
           return (_context.Modules?.Any(e => e.Id == id)).GetValueOrDefault();

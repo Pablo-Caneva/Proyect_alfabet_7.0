@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proyect_alfabet_7._0.Models
 {
+    /// <summary>
+    /// Usuario estudiante. Tiene un tutor asignado y un progreso asociado.
+    /// </summary>
     public class Student :User
     {
         public int? TutorId { get; set; } = null;

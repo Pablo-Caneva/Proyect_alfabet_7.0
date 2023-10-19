@@ -22,6 +22,11 @@ namespace Proyect_alfabet_7._0.Controllers
             _progressCalculator = progressCalculator;
         }
 
+        /// <summary>
+        /// Acción asincrónica que muestra el menú del tutor logueado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Tutors
         public async Task<IActionResult> Index(int id)
         {
@@ -45,6 +50,11 @@ namespace Proyect_alfabet_7._0.Controllers
              return Problem("Entity set 'ApplicationDbContext.Student' is null.");
         }
 
+        /// <summary>
+        /// Acción asincrónica que muestra el perfil del tutor logueado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Tutors/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -115,6 +125,12 @@ namespace Proyect_alfabet_7._0.Controllers
             return View(tutor);
         }
 
+        /// <summary>
+        /// Acción asincrónica para editar el perfil del usuario tipo tutor.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="tutor"></param>
+        /// <returns></returns>
         // POST: Tutors/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

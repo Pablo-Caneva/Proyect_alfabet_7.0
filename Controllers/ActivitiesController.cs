@@ -20,7 +20,13 @@ namespace Proyect_alfabet_7._0.Controllers
             _context = context;
             _activitiesChecker = activitiesChecker;
         }
-
+        /// <summary>
+        /// Acción que recibe id de estudiante, número de módulo y número de lección y devuelve la vista correspondiente,
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="module"></param>
+        /// <param name="lesson"></param>
+        /// <returns></returns>
         public IActionResult GetLesson(int id, int module, int lesson)
         {
             string lessonNumber = $"/Module{module}/Lesson{lesson}";
@@ -29,6 +35,13 @@ namespace Proyect_alfabet_7._0.Controllers
             ViewData["lesson"] = lesson;
             return View($"~/Views/Activities{lessonNumber}.cshtml");
         }
+
+        /// <summary>
+        /// Acción que recibe número de módulo y número de lección y devuelve la vista correspondiente, para ser visualizado por tutores y administradores únicamente.
+        /// </summary>
+        /// <param name="module"></param>
+        /// <param name="lesson"></param>
+        /// <returns></returns>
         public IActionResult GetLessonTutor(int module, int lesson)
         {
             string lessonNumber = $"/Module{module}/Lesson{lesson}";
@@ -38,6 +51,15 @@ namespace Proyect_alfabet_7._0.Controllers
             return View($"~/Views/Activities{lessonNumber}.cshtml");
         }
 
+        /// <summary>
+        /// Acción para corregir que las palabras en la lista Words empiecen con la letra firstLetter
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="module"></param>
+        /// <param name="lesson"></param>
+        /// <param name="words"></param>
+        /// <param name="firstLetter"></param>
+        /// <returns></returns>
         public IActionResult StartsWith(int id, int module, int lesson, List<string> words, char firstLetter)
         {
             if (_activitiesChecker.StartsWith(words, firstLetter)) {
@@ -48,6 +70,14 @@ namespace Proyect_alfabet_7._0.Controllers
                 return RedirectToAction("Wrong", "Activities", new { @id = id, @module = module, @lesson = lesson });
             }
         }
+
+        /// <summary>
+        /// Acción que muestra una vista de respuesta correcta.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="module"></param>
+        /// <param name="lesson"></param>
+        /// <returns></returns>
         public IActionResult Right(int id, int module, int lesson)
         {
             ViewData["id"] = id;
@@ -55,6 +85,14 @@ namespace Proyect_alfabet_7._0.Controllers
             ViewData["lesson"] = lesson;
             return View();
         }
+
+        /// <summary>
+        /// Acción que muestra una vista de respuesta incorrecta.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="module"></param>
+        /// <param name="lesson"></param>
+        /// <returns></returns>
         public IActionResult Wrong(int id, int module, int lesson)
         {
             ViewData["id"] = id;

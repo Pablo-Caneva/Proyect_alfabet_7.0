@@ -24,6 +24,12 @@ namespace Proyect_alfabet_7._0.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Tarea asincrónica que diferencia el menú a mostrar según el tipo de usuario.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="passcode"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Index(string username, string passcode)
         {
@@ -62,18 +68,31 @@ namespace Proyect_alfabet_7._0.Controllers
             }
         }
 
+        /// <summary>
+        /// No en uso actualmente. Acción para envío correcto de email de recuperación de pass.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult EmailSent()
         {
             return View();
         }
+
+        /// <summary>
+        /// No en uso actualmente. Acción para email erróneo de recuperación de pass.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult EmailError()
         {
             return View();
         }
+
+        /// <summary>
+        /// No en uso actualmente. Acción para email inexistente de recuperación de pass.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult EmailInex()
         {
             return View();
         }
-
     }
 }

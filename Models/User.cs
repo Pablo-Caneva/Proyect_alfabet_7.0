@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proyect_alfabet_7._0.Models
 {
+    /// <summary>
+    /// Superclase usuario.
+    /// </summary>
     public class User : UserLogin
     {
         [Required]

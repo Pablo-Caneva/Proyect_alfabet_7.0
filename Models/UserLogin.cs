@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Proyect_alfabet_7._0.Models
 {
+    /// <summary>
+    /// Superclase que maneja nombre de usuario y contraseña.
+    /// </summary>
     public class UserLogin
     {
         [Key]
@@ -18,13 +21,6 @@ namespace Proyect_alfabet_7._0.Models
 
         public UserLogin()
         {
-        }
-
-        public UserLogin(int id, string userName, string password)
-        {
-            Id = id;
-            UserName = userName;
-            Password = password;
         }
     }
 }
